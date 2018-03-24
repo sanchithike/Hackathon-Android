@@ -1,0 +1,9 @@
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/*
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdbserver
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdb.setup
+mkdir -p /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips
+echo [mips] "Gdbserver      ": "[mips64el-linux-android] /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdbserver"
+install -p /Users/sanchitsharma/Library/Android/sdk/ndk-bundle/prebuilt/android-mips/gdbserver/gdbserver /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdbserver
+echo [mips] "Gdbsetup       ": "/Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdb.setup"
+echo "set solib-search-path /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/obj/local/mips" > /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdb.setup
+echo "directory /Users/sanchitsharma/Library/Android/sdk/ndk-bundle/sysroot /Users/sanchitsharma/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++" >> /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/mips/gdb.setup

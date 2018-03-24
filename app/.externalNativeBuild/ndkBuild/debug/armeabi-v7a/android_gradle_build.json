@@ -1,0 +1,11 @@
+{
+  "buildFiles": [
+    "/Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/src/main/jni/Application.mk",
+    "/Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [],
+  "libraries": {},
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}

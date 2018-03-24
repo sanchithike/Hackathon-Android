@@ -1,0 +1,9 @@
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/*
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdbserver
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdb.setup
+mkdir -p /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi
+echo [armeabi] "Gdbserver      ": "[arm-linux-androideabi] /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdbserver"
+install -p /Users/sanchitsharma/Library/Android/sdk/ndk-bundle/prebuilt/android-arm/gdbserver/gdbserver /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdbserver
+echo [armeabi] "Gdbsetup       ": "/Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdb.setup"
+echo "set solib-search-path /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/obj/local/armeabi" > /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdb.setup
+echo "directory /Users/sanchitsharma/Library/Android/sdk/ndk-bundle/sysroot /Users/sanchitsharma/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++" >> /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/debug/lib/armeabi/gdb.setup

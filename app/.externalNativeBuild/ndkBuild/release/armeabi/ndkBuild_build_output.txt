@@ -1,0 +1,3 @@
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/release/lib/armeabi/*
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/release/lib/armeabi/gdbserver
+rm -f /Users/sanchitsharma/Documents/Sanchit/visageSDK-Android/Samples/Android/VisageTrackerDemo/app/build/intermediates/ndkBuild/release/lib/armeabi/gdb.setup

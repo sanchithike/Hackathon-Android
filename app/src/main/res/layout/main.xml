@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Visage Tracker Demo"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnDestinationImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSourceImage"
+        android:layout_alignLeft="@+id/btnSourceImage"
+        android:layout_alignRight="@+id/btnSourceImage"
+        android:layout_marginBottom="10dp"
+        android:text="Pick Destination Image" />
+    
+    <Button
+        android:id="@+id/btnSourceImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"        
+        android:text="Pick Source Image" />
+
+    <Button
+        android:id="@+id/btnSwap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDestinationImage"
+        android:layout_alignLeft="@+id/btnDestinationImage"
+        android:layout_alignRight="@+id/btnDestinationImage"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Swap Face" />
+    
+
+</RelativeLayout>
+		
