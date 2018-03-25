@@ -41,17 +41,28 @@
         android:layout_alignRight="@+id/btnSourceImage"
         android:layout_marginBottom="10dp"
         android:text="Take Source Image" />
+    <EditText
+        android:id="@+id/index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDestinationImage"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:inputType="number"
+        android:hint="Pick Face Number to swap" />
 
     <Button
         android:id="@+id/btnSwap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnDestinationImage"
+        android:layout_below="@id/index"
         android:layout_alignLeft="@+id/btnDestinationImage"
         android:layout_alignRight="@+id/btnDestinationImage"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Swap Face" />
+
+
     
 
 </RelativeLayout>

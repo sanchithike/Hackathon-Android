@@ -69,8 +69,8 @@ public class TrackerActivity extends Activity
 	int type;
 	String sourceImagePath;
 	String destinationImagePath;
-	int sourceFaceIndex;
-	int destinationFaceIndex;
+	int sourceFaceIndex = 0;
+	int destinationFaceIndex = 0;
 	FaceData[] sourceFaces;
 	FaceData[] destinationFaces;
 	FaceRenderer renderer;
@@ -83,6 +83,10 @@ public class TrackerActivity extends Activity
 		Bundle bundle = getIntent().getExtras();
 		sourceImagePath = bundle.getString("sourceImagePath");
 		destinationImagePath = bundle.getString("destinationImagePath");
+		int faceIndex = bundle.getInt("faceIndex");
+		if(faceIndex != -1){
+			destinationFaceIndex = faceIndex - 1;
+		}
 		track();
 		TrackerActivity.instance = this;
 		licenseMessageShown = false;
@@ -109,8 +113,8 @@ public class TrackerActivity extends Activity
 		if(sourceFaces.length > 0 && destinationFaces.length > 0){
 
 
-			sourceFaceIndex = 0;
-			destinationFaceIndex = destinationFaces.length - 1;
+//			sourceFaceIndex = 0;
+//			destinationFaceIndex = destinationFaces.length - 1;
 			setBitmap(sourceFaces,sourceBitmap);
 			setBitmap(destinationFaces,destinationBitmap);
 			calculateRect(sourceFaces);

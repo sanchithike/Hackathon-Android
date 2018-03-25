@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,6 +41,8 @@ public class ImagesActivity extends Activity
 	private String destinationImagePath;
 
 	private int currentIndex = -1;
+
+	private int faceIndex = -1;
 	/** Implementation of onCreate method provided by Activity interface.
 	 *  Called when Activity is started for the first time.
 	 */
@@ -104,6 +107,16 @@ public class ImagesActivity extends Activity
 		Bundle bundle = new Bundle();
 		bundle.putString("sourceImagePath",sourceImagePath);
 		bundle.putString("destinationImagePath",destinationImagePath);
+		EditText editText = (EditText) findViewById(R.id.index);
+		String index = editText.getText().toString();
+		if(!index.equals("")){
+			try{
+				faceIndex = Integer.parseInt(index);
+			}catch (Exception e){
+				Log.e("ImagesActivity","exception found");
+			}
+		}
+		bundle.putInt("faceIndex",faceIndex);
 		intent.putExtras(bundle);
 		startActivity(intent);
 	}
