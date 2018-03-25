@@ -36,6 +36,7 @@ public abstract class RenderTarget {
 
     void computeProjection() {
         Matrix.setIdentityM(mProjectionMatrix, 0);
+//        Matrix.perspectiveM(mProjectionMatrix, 0, (float) ((float) (Math.atan((float) Math.tan(mFOV/2 * Math.PI/180f) * mAspectRatio)*2f) * 180/Math.PI), mAspectRatio, zNear, zFar);
         Matrix.perspectiveM(mProjectionMatrix, 0, mFOV, mAspectRatio, zNear, zFar);
     }
 

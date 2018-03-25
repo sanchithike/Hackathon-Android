@@ -16,6 +16,7 @@ import com.roposo.creation.graphics.ImageSource;
 import com.roposo.creation.graphics.Renderer;
 import com.roposo.creation.graphics.filters.BaseFilter;
 import com.roposo.creation.graphics.gles.ProgramCache.ProgramDescription;
+import com.roposo.creation.graphics.scenes.Scene3D;
 
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -773,10 +774,31 @@ public class OpenGLRenderer {
         }
 
         Matrix.setIdentityM(mvMatrix, 0);
-        Matrix.multiplyMM(mvMatrix, 0, renderTarget.getView(), 0, modelMatrix, 0);
+        Drawable2d drawable2d = (Drawable2d) drawable;
+        if(!drawable2d.isVertexBufferBased ){
+            Matrix.multiplyMM(mvMatrix, 0, renderTarget.getView(), 0, modelMatrix, 0);
+        } else{
+            Matrix.setLookAtM(mvMatrix,0,0,0,0,0,0,1,0,1,0);
+            float ratio = 1;
+            if(mAspectRatio > 1){
+                ratio = 1/mAspectRatio;
+            }
+            Matrix.translateM(mvMatrix,0,(float) Scene3D.translation[0] * ratio,(float)Scene3D.translation[1],(float)Scene3D.translation[2]);
+            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[1],0,1,0);
+            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[0],1,0,0);
+            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[2],0,0,1);
+        }
+
 
         Matrix.setIdentityM(mvpMatrix, 0);
-        Matrix.multiplyMM(mvpMatrix, 0, renderTarget.getProjection(), 0, mvMatrix, 0);
+        float[] projection = new float[16];
+        float frustum_near = 0.001f;
+        float frustum_far = 30; //hard to estimate face too far away
+        float frustum_x = 1*frustum_near/ Scene3D.cameraFocus;
+        float frustum_y = (1/renderTarget.mAspectRatio)*frustum_near/Scene3D.cameraFocus;
+        Matrix.frustumM(projection,0,-frustum_x,frustum_x,-frustum_y,frustum_y,frustum_near,frustum_far);
+        Matrix.multiplyMM(mvpMatrix, 0, drawable2d.isVertexBufferBased?projection:renderTarget.getProjection(), 0, mvMatrix, 0);
+
 
         drawable.setMVPMatrix(mvpMatrix);
     }

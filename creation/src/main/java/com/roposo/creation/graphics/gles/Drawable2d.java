@@ -122,7 +122,7 @@ public class Drawable2d extends Drawable {
 
         double outputAspectRatio = drawableWidth / drawableHeight;
 
-        if (!(inputAspectRatio == 0 || Double.isNaN(inputAspectRatio))) {
+        if (!(inputAspectRatio == 0 || Double.isNaN(inputAspectRatio)) && !isVertexBufferBased) {
             switch (mScaleType) {
                 case Drawable2d.SCALE_TYPE_CROP:
                     if (outputAspectRatio < inputAspectRatio) {

@@ -59,35 +59,9 @@ public class Scene3D extends DemoScene {
         root.addChild(drawableFace);
     }
 
-    private void SetUpCamera3D(Camera camera, int width, int height, float f){
-        float x_offset = 1;
-        float y_offset = 1;
-        if (width > height)
-            x_offset = ((float)width)/((float)height);
-        else if (width < height)
-            y_offset = ((float)height)/((float)width);
-        //Note:
-        // FOV in radians is: fov*0.5 = arctan ((top-bottom)*0.5 / near)
-        // In this case: FOV = 2 * arctan(frustum_y / frustum_near)
-        //set frustum specs
-        float frustum_near = 0.001f;
-        float frustum_far = 30; //hard to estimate face too far away
-        float frustum_x = x_offset*frustum_near/f;
-        float frustum_y = y_offset*frustum_near/f;
-
-    }
-
     @Override
     public void onDraw(OpenGLRenderer.Fuzzy renderTargetType, long timeStampMs) {
         OpenGLRenderer renderer = OpenGLRenderer.getRenderer(renderTargetType);
-        renderer.drawFrame((Drawable)root.getChild(0));
-        Camera camera = renderer.mRenderTarget.mCamera;
-        float[] cameraPosition = camera.getCameraPosition();
-        float[] lookAt = camera.getCameraLookAt();
-//        double[] tx = translation.clone();
-//        tx[2] += -Caches.mWallDist + renderer.mRenderTarget.mCamera.getCameraPosition()[2];
-//        ((Drawable2d)(root.getChildAt(1))).setTranslate(tx);
-
         renderer.drawFrame(root);
     }
 
