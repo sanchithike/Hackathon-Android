@@ -100,6 +100,7 @@ public class TrackerActivity extends Activity
 		Bitmap sourceBitmap = Utils.LoadBitmapFromFile(sourceImagePath);
 		sourceBitmap = Utils.CreateOptimalBitmapSize(sourceBitmap,this);
 		Bitmap destinationBitmap = Utils.LoadBitmapFromFile(destinationImagePath);
+		destinationBitmap = Utils.CreateOptimalBitmapSize(destinationBitmap,this);
 		WriteSouceFrameImage(Utils.ConvertToByte(sourceBitmap), sourceBitmap.getWidth(), sourceBitmap.getHeight());
 		WriteDestinationFrameImage(Utils.ConvertToByte(destinationBitmap), destinationBitmap.getWidth(), destinationBitmap.getHeight());
 
