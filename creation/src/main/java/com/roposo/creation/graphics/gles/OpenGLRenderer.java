@@ -780,12 +780,14 @@ public class OpenGLRenderer {
         } else{
             Matrix.setLookAtM(mvMatrix,0,0,0,0,0,0,1,0,1,0);
             float ratio = 1;
-            if(mAspectRatio > 1){
-                ratio = 1/mAspectRatio;
+            float drawableAspectRatio = Scene3D.destinationBitmap.getWidth()/(Scene3D.destinationBitmap.getHeight()+0.0f);
+            if(drawableAspectRatio > 1){
+                ratio = 1/drawableAspectRatio;
             }
-            Matrix.translateM(mvMatrix,0,(float) Scene3D.translation[0] * ratio,(float)Scene3D.translation[1],(float)Scene3D.translation[2]);
-            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[1],0,1,0);
+            Matrix.scaleM(mvMatrix,0,ratio,ratio,1);
+            Matrix.translateM(mvMatrix,0,(float) Scene3D.translation[0] * 1,(float)Scene3D.translation[1],(float)Scene3D.translation[2]);
             Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[0],1,0,0);
+            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[1],0,1,0);
             Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[2],0,0,1);
         }
 

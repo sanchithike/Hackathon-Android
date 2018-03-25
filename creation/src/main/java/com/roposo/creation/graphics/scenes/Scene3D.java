@@ -36,6 +36,7 @@ public class Scene3D extends DemoScene {
     public static double[] translation;
     public static double[] scale;
     public static float cameraFocus;
+    public static Bitmap desinationBitmap;
     public Scene3D(ArrayList<ImageSource> imageSources) {
         super(imageSources);
         root = (Drawable2d) mRootDrawables.get(0);

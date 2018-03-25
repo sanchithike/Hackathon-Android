@@ -170,7 +170,7 @@ public class TrackerActivity extends AppCompatActivity
 				translation[i] = (double) translationFace[i];
 			}
 			Scene3D.translation = translation;
-
+			Scene3D.destinationBitmap = destinationBitmap;
 			// Rotation
 			float[] rotationData = getDestinationFaces()[destinationFaceIndex].getFaceRotation();
 			rotationData[0] = (float) Math.toDegrees(rotationData[0]);
