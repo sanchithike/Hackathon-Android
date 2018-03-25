@@ -1,6 +1,8 @@
 package com.visagetechnologies.visagetrackerdemo;
 
 import java.lang.ref.WeakReference;
+import java.nio.FloatBuffer;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -22,6 +24,8 @@ import android.media.FaceDetector;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -33,6 +37,16 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.roposo.core.util.ContextHelper;
+import com.roposo.core.util.FileUtilities;
+import com.roposo.creation.av.SessionConfig;
+import com.roposo.creation.fragments.RenderFragment;
+import com.roposo.creation.graphics.GraphicsConsts;
+import com.roposo.creation.graphics.ImageSource;
+import com.roposo.creation.graphics.RenderManager;
+import com.roposo.creation.graphics.SceneManager;
+import com.roposo.creation.graphics.scenes.Scene3D;
+
 import org.rajawali3d.view.ISurface;
 import org.rajawali3d.view.SurfaceView;
 
@@ -41,7 +55,7 @@ import static android.content.ContentValues.TAG;
 
 /** Activity called to initiate and control tracking for either tracking from camera or image.
  */
-public class TrackerActivity extends Activity 
+public class TrackerActivity extends AppCompatActivity
 {
 	final int TRACK_GREYSCALE = 2;
 	final int TRACK_RGB = 0;
@@ -76,10 +90,14 @@ public class TrackerActivity extends Activity
 	FaceRenderer renderer;
 	Bitmap faceTexture;
 
+	public static Bitmap sourceBitmap;
+	public static Bitmap destinationBitmap;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		super.onCreate(savedInstanceState);
+		ContextHelper.setContext(this);
+		ContextHelper.setApplicationContext(getApplicationContext());
 		Bundle bundle = getIntent().getExtras();
 		sourceImagePath = bundle.getString("sourceImagePath");
 		destinationImagePath = bundle.getString("destinationImagePath");
@@ -97,9 +115,16 @@ public class TrackerActivity extends Activity
 
 	public void track(){
 		TrackerInit(getFilesDir().getAbsolutePath() + "/Facial Features Tracker - High.cfg");
-		Bitmap sourceBitmap = Utils.LoadBitmapFromFile(sourceImagePath);
-		sourceBitmap = Utils.CreateOptimalBitmapSize(sourceBitmap,this);
-		Bitmap destinationBitmap = Utils.LoadBitmapFromFile(destinationImagePath);
+		Bitmap source = Utils.LoadBitmapFromFile(sourceImagePath);
+		source = Utils.CreateOptimalBitmapSize(source,this);
+
+		Bitmap destination = Utils.LoadBitmapFromFile(destinationImagePath);
+		destination = Utils.CreateOptimalBitmapSize(destination,this);
+
+		sourceBitmap = source;
+		destinationBitmap = destination;
+		Scene3D.sourceBitmap = sourceBitmap;
+		Scene3D.destinationBitmap = destinationBitmap;
 		WriteSouceFrameImage(Utils.ConvertToByte(sourceBitmap), sourceBitmap.getWidth(), sourceBitmap.getHeight());
 		WriteDestinationFrameImage(Utils.ConvertToByte(destinationBitmap), destinationBitmap.getWidth(), destinationBitmap.getHeight());
 
@@ -134,18 +159,56 @@ public class TrackerActivity extends Activity
 					return idx1.getFaceRect().left - idx2.getFaceRect().left;
 				}
 			});
+			Scene3D.verticesBuffer = Utils.getFloatBuffer(getDestinationFaces()[destinationFaceIndex].getFaceModelVertices());
+			Scene3D.texCoordBuffer = Utils.getFloatBuffer(getSourceFaces()[sourceFaceIndex].getFaceModelTextureCoords());
+			Scene3D.indicesBuffer = Utils.getShortBuffer(getDestinationFaces()[destinationFaceIndex].getCorrectedTriangles());
 
-			final SurfaceView surface = new SurfaceView(this);
-			surface.setFrameRate(60.0);
-			surface.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
-			RelativeLayout layout = new RelativeLayout(this);
-			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-			layout.setLayoutParams(params);
-			setContentView(layout);
-			// Add mSurface to your root view
-			addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
-			renderer = new FaceRenderer(this,this,sourceFaceIndex,destinationFaceIndex,destinationFaces[destinationFaceIndex].getMedianColor());
-			surface.setRenderer(renderer);
+			// Translation
+			double[] translation = new double[3];
+			float[] translationFace = getDestinationFaces()[destinationFaceIndex].getFaceTranslation();
+			for(int i = 0; i < translationFace.length; i++){
+				translation[i] = (double) translationFace[i];
+			}
+			Scene3D.translation = translation;
+
+			// Rotation
+			float[] rotationData = getDestinationFaces()[destinationFaceIndex].getFaceRotation();
+			rotationData[0] = (float) Math.toDegrees(rotationData[0]);
+			rotationData[1] = (float) Math.toDegrees(rotationData[1] + Math.PI);
+			rotationData[2] = (float) Math.toDegrees(rotationData[2]);
+			Scene3D.rotationAngles = rotationData;
+
+			Scene3D.cameraFocus  = getDestinationFaces()[destinationFaceIndex].getCameraFocus();
+			setContentView(R.layout.scenelayout);
+			RenderFragment renderFragment = new RenderFragment();
+			this.getSupportFragmentManager().beginTransaction().replace(R.id.scenelayout,renderFragment).commit();
+			renderFragment.startPlayback(destinationImagePath, GraphicsConsts.MEDIA_TYPE_IMAGE, GraphicsConsts.RENDER_TARGET_DISPLAY, new RenderManager.AVComponentListener() {
+				@Override
+				public void onStarted(@Nullable SessionConfig config) {
+
+				}
+
+				@Override
+				public void onPrepared(@Nullable SessionConfig config) {
+
+				}
+
+				@Override
+				public void onProgressChanged(@Nullable SessionConfig config, long timestamp) {
+
+				}
+
+				@Override
+				public void onCompleted(@Nullable SessionConfig config) {
+
+				}
+
+				@Override
+				public void onCancelled(@Nullable SessionConfig config, boolean error) {
+
+				}
+			});
+			renderFragment.invalidateScene(SceneManager.SceneName.SCENE_3D);
 		}
 		else{
 			Log.d("TrackerActivity","Unable to detect faces in source or destination image");

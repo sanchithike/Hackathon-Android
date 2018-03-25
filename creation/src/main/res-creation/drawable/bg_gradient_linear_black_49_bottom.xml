@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate android:drawable="@drawable/bg_gradient_linear_black_49_top"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="180"/>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nearby_location_header_title" type="id" />
+    <item name="trash_box_cover" type="id" />
+</resources>

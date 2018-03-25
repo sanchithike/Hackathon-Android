@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="55dp"
+    android:height="55dp"
+    android:viewportWidth="55"
+    android:viewportHeight="55">
+
+    <!-- How to draw a circle
+    <path d="
+        M cx - r, cy
+        a r,r 0 1,0 (r * 2),0
+        a r,r 0 1,0 -(r * 2),0
+    "/>
+    -->
+
+    <path
+        android:fillColor="#D94666"
+        android:fillAlpha=".83"
+        android:strokeAlpha=".83"
+        android:strokeWidth="1"
+        android:pathData="M 0 ,27.5 a 27.5,27.5 0 1,0 55,0 a 27.5,27.5 0 1,0 -55,0" />
+
+    <group
+        android:translateX="8"
+        android:translateY="25">
+        <path
+            android:fillColor="#FFF"
+            android:fillAlpha=".5"
+            android:strokeAlpha=".5"
+            android:strokeWidth="1"
+            android:pathData="M 0.5 2 L 39.5 2 Q 40 2 40 2.5 L 40 2.5 Q 40 3 39.5 3 L 0.5 3 Q 0 3 0 2.5 L 0 2.5 Q 0 2 0.5 2 Z" />
+
+        <path
+            android:fillColor="#FFF"
+            android:pathData="M 0.5 2 L 19.5 2 Q 20 2 20 2.5 L 20 2.5 Q 20 3 19.5 3 L 0.5 3 Q 0 3 0 2.5 L 0 2.5 Q 0 2 0.5 2 Z" />
+
+        <path
+            android:fillColor="#FFF"
+            android:pathData="M 18 ,2.5 a 2.5,2.5 0 1,0 5,0 a 2.5,2.5 0 1,0 -5,0" />
+
+    </group>
+
+</vector>

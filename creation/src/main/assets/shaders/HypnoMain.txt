@@ -1,0 +1,27 @@
+vec2 uv = originalTexCoords;
+float luma = 0.2126 * fragColor.x + 0.7152 * fragColor.y + 0.0722 * fragColor.z;
+
+vec3 color;
+color.r = color2.x + luma * (color1.x - color2.x);
+color.g = color2.y + luma * (color1.y - color2.y);
+color.b = color2.z + luma * (color1.z - color2.z);
+
+vec2 center = vec2(0.5, 0.5);
+float speed = 0.00008;
+
+float x = (center.x - uv.x);
+float y = (center.y - uv.y) * 16.0 / 9.0;
+float radius = -sqrt(x*x + y*y);
+
+float z = 1. + 0.3 * sin((radius + timeFactor * speed) / 0.02);
+
+fragColor.rgb = vec3(z) * color;
+
+/*  Uncomment to get sharp grey circles
+if (z > 1.1) {
+    fragColor.rgb = vec3(0.3);
+}
+else {
+    fragColor.rgb = color;
+}
+*/

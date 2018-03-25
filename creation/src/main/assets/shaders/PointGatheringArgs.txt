@@ -1,0 +1,23 @@
+const float resolution = 512.0;
+const float outputResolution = 512.0;
+const float outputOffset = (1.0/(2.0*outputResolution));
+//for input offset, use texelsize/2.0
+
+//returns the center of the start of the level
+vec2 startOfLevel(int level) {
+	float xCoord = 0.0;
+	float currResolutionX = resolution;
+	for (int i = 1; i <= level; i++) {
+		xCoord += currResolutionX;
+		currResolutionX /= 2.0;
+	}
+	return vec2(xCoord/(resolution * 2.0), 0.0) + texelSize/2.0;
+}
+
+vec2 giveCoordinate(int totalLevels, int level, int row, int column) {
+	return startOfLevel(level) + vec2(float(row)/(resolution * 2.0), float(column)/resolution);
+}
+
+int numOfPointsOnMagnifying(vec4 rgba, int level) {
+	return int(rgba.r * 100.0 + 0.4999);
+}

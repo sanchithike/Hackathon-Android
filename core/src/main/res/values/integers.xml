@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="aviary_shortAnimTime_copy">200</integer>
+    <integer name="card_flip_time_full">200</integer>
+    <integer name="card_flip_time_half">100</integer>
+    <integer name="card_flip_time_long">500</integer>
+    <integer name="fragment_transaction_time">200</integer>
+
+
+    <!-- The duration (in milliseconds) of a short animation. -->
+    <integer name="shortAnimTime">100</integer>
+    <integer name="max_product_price_limit">6</integer>
+</resources>

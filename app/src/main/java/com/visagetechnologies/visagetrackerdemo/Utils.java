@@ -20,6 +20,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.nio.ShortBuffer;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -80,6 +85,35 @@ public class Utils {
             return true;
         }
         return false;
+    }
+
+    public static FloatBuffer getFloatBuffer(float[] array){
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(array.length * 4);
+        byteBuffer.order(ByteOrder.nativeOrder());
+        FloatBuffer floatBuffer = byteBuffer.asFloatBuffer();
+        floatBuffer.put(array);
+        floatBuffer.position(0);
+        return floatBuffer;
+    }
+
+    public static IntBuffer getIntBuffer(int[] array){
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(array.length * 4);
+        byteBuffer.order(ByteOrder.nativeOrder());
+        IntBuffer intBuffer = byteBuffer.asIntBuffer();
+        intBuffer.put(array);
+        intBuffer.position(0);
+        return intBuffer;
+    }
+
+    public static ShortBuffer getShortBuffer(int[] array){
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(array.length * 2);
+        byteBuffer.order(ByteOrder.nativeOrder());
+        ShortBuffer intBuffer = byteBuffer.asShortBuffer();
+        for(int i = 0; i < array.length; i++) {
+            intBuffer.put((short) array[i]);
+        }
+        intBuffer.position(0);
+        return intBuffer;
     }
 
     public static void saveFaceDataToFile(Activity activity, FaceData faceData, String fileName){

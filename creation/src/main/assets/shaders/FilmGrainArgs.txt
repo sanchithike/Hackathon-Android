@@ -1,0 +1,24 @@
+uniform float timeFactor;
+
+#define SPEED .05
+#define INTENSITY 0.01
+// What gray level noise should tend to.
+#define MEAN 0.0
+// Controls the contrast/variance of noise.
+#define VARIANCE 0.15
+
+vec3 channel_mix(vec3 a, vec3 b, vec3 w) {
+    return vec3(mix(a.r, b.r, w.r), mix(a.g, b.g, w.g), mix(a.b, b.b, w.b));
+}
+
+float gaussian(float z, float u, float o) {
+    return (1.0 / (o * sqrt(2.0 * 3.1415))) * pow(2.71828, -(((z - u) * (z - u)) / (2.0 * (o * o))));
+}
+
+vec3 madd(vec3 a, vec3 b, float w) {
+return a + a * b * w;
+}
+
+#define BlendColorDodgef(base, blend) 	((blend == 1.0) ? blend : min(base / (1.0 - blend), 1.0))
+#define Blend(base, blend, funcf) 		vec3(funcf(base.r, blend.r), funcf(base.g, blend.g), funcf(base.b, blend.b))
+#define BlendColorDodge(base, blend) 	Blend(base, blend, BlendColorDodgef)

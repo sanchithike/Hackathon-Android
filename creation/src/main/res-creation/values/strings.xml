@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="effect_normal">Normal</string>
+    <string name="effect_manifold">Manifold</string>
+    <string name="effect_daydream">Daydream</string>
+    <string name="effect_roposo">Roposo</string>
+    <string name="effect_miniparty">Mini Party</string>
+    <string name="effect_chalky">Chalky</string>
+    <string name="effect_checkers">Checkers</string>
+    <string name="effect_dhikchik">Dhik-Chik</string>
+    <string name="effect_lantern">Lantern</string>
+    <string name="effect_kickoff">Kickoff</string>
+    <string name="effect_sketch">Sketch</string>
+    <string name="effect_3way">3 Ways</string>
+    <string name="effect_ditto">Ditto</string>
+    <string name="effect_clone">Clone</string>
+    <string name="effect_monochrome">Monochrome</string>
+    <string name="effect_rainbow">Rainbow</string>
+    <string name="effect_window">Window</string>
+    <string name="effect_tricolor">Tricolor</string>
+    <string name="effect_flicker">Flicker</string>
+    <string name="effect_patchwork">Patchwork</string>
+    <string name="effect_snow">Snow</string>
+    <string name="effect_tripper">Tripper</string>
+    <string name="effect_hexagram">Hexagram</string>
+    <string name="effect_ripple">Ripple</string>
+    <string name="effect_filmgrain">Film Grain</string>
+    <string name="effect_shootingstar">Shooting Star</string>
+    <string name="effect_polaroid">Polaroid</string>
+    <string name="effect_firefly">Firefly</string>
+    <string name="effect_hooplight">Hoop Light</string>
+    <string name="effect_comic">Comic</string>
+    <string name="effect_demon">Demon</string>
+    <string name="effect_roportrait">Roportrait</string>
+    <string name="effect_firebolt">Firebolt</string>
+    <string name="effect_blaze">Blaze</string>
+    <string name="effect_dazzling">Dazzling</string>
+    <string name="effect_plaid">Plaid</string>
+    <string name="effect_roller_coaster">Roller Coaster</string>
+    <string name="effect_hypno">Hypno</string>
+    <string name="effect_ropotrait">Ropotrait</string>
+
+    <string name="lut_default">Default</string>
+    <string name="lut_softglow">Soft Glow</string>
+    <string name="lut_greyjoy">Grey Joy</string>
+    <string name="lut_mrindia">Mr. India</string>
+    <string name="lut_redify">Red-ify</string>
+    <string name="lut_actiongreen">Action Green</string>
+    <string name="lut_1990s">1990s</string>
+    <string name="lut_brighter">Brighter</string>
+    <string name="lut_contrastica">Contrastica</string>
+    <string name="lut_brighterati">Brighterati</string>
+    <string name="lut_dramastic">Dramastic</string>
+    <string name="lut_hiddentia">Hiddentia</string>
+    <string name="lut_howlit">Howlit</string>
+    <string name="lut_orangica">Orangica</string>
+    <string name="lut_colorphobe">Colorphobe</string>
+    <string name="lut_darkforest">Dark Forest</string>
+    <string name="lut_saffrontie">Saffronite</string>
+
+    <string name="tip_swipe_for_filters">Swipe for photo filters</string>
+    <string name="tip_longpress_intensity">Long press to manage intensity</string>
+    <string name="tip_addaudio">Add Audio</string>
+
+    <string name="selectmusic">Select Music</string>
+    <string name="hint_searchmusic">Search Music</string>
+
+    <string name="pe_shimmer">Shimmer</string>
+    <string name="pe_lover">Lover</string>
+    <string name="pe_ghoomar">Ghoomar</string>
+    <string name="pe_muaah">Muaah</string>
+    <string name="pe_glitterati">Glitterati</string>
+    <string name="pe_titli">Titli</string>
+    <string name="pe_superstar">Superstar</string>
+    <string name="pe_bubbly">Bubbly</string>
+    <string name="pe_melody">Melody</string>
+    <string name="pe_glowworm">Glowworm</string>
+    <string name="pe_patakha">Patakha</string>
+    <string name="pe_starry">Starry</string>
+    <string name="pe_mrsmiley">Mr. Smiley</string>
+    <string name="pe_golddigger">Golddigger</string>
+    <string name="pe_sweettooth">Sweet Tooth</string>
+    <string name="pe_marigold">Marigold</string>
+    <string name="pe_mcroposo">McRoposo</string>
+</resources>

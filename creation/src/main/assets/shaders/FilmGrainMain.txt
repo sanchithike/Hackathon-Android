@@ -1,0 +1,23 @@
+vec2 uv = originalTexCoords.xy;
+fragColor = vec4(vec3(fragColor.r * 0.3 + fragColor.g * 0.59 + fragColor.b * 0.11), fragColor.a);
+
+float t = timeFactor * float(SPEED);
+float seed = dot(uv, vec2(12.9898, 78.233));
+float noise = fract(sin(seed) * 43758.5453 + t);
+noise = gaussian(noise, float(MEAN), float(VARIANCE) * float(VARIANCE));
+
+
+float w = INTENSITY;
+vec3 grain = vec3(noise) * (1.0 - fragColor.rgb);
+
+
+fragColor.rgb += grain * w;
+
+if (fragColor2.a != 0.0) {
+    fragColor.rgb = BlendColorDodge(fragColor.rgb, fragColor2.rgb);
+}
+else {
+    fragColor.rgb = fragColor.rgb;
+}
+
+

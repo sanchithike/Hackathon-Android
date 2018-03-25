@@ -1,0 +1,2 @@
+vec3 color = vec3(redFactor, greenFactor, blueFactor);
+fragColor.rgb = BlendHue(fragColor.rgb, color);

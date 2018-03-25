@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="roposo_app_name">Roposo</string>
+    <string name="roposo_creation_app">Roposo Creation</string>
+    <string name="roposo_editor_app">Roposo Editor</string>
+    <string name="roposo_video_record_app">Roposo Editor</string>
+    <string name="roposo_add_sticker">Add Sticker</string>
+    <string name="roposo_chat_app">Roposo Chat</string>
+    <string name="roposo_navigation_app">Roposo Navigation</string>
+
+    <string name="product_activity">ProductActivity</string>
+    <string name="login_activity">Login Activity</string>
+    <string name="home_activity">Home Activity</string>
+    <string name="second_activity">SecondActivity</string>
+    <string name="redirect_activity">RedirectActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="subfilter_images">Subfilter Images</string>
+    <string name="facebook_app_id">555515657861938</string>
+    <string name="localytics_key">2ae6fb4c5f4fd35cd9fa522-7e642e88-822c-11e5-7cdd-00736b041834</string>
+    <string name="amp_localytics_key">amp2ae6fb4c5f4fd35cd9fa522-7e642e88-822c-11e5-7cdd-00736b041834</string>
+    <string name="default_native_spot_id">ca-app-pub-5150109663795473/9097284108</string>
+    <string name="default_bottom_spot_id">ca-app-pub-5150109663795473/1679008830</string>
+    <string name="default_interstitial_spot_id">ca-app-pub-5150109663795473/9351923259</string>
+    <string name="default_fb_native_spot_id">555515657861938_1555121791234648</string>
+
+    <!--<string name="truecaller_partner_key">bB0yae7ee13362fdb47b8ae2aa47233cd1d92</string>-->
+    <string name="truecaller_partner_key">QV5tMcb8b59b987ed4b10b4e91c2e1c22a55b</string>
+    <string name="rupee_static">Rs.</string>
+    <string name="rate_us_star">Rate us <b>5 stars</b> on Play store</string>
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Feed</item>
+        <item>Clothes</item>
+        <item>Shoes</item>
+        <item>Jewellery</item>
+        <item>Accessories</item>
+        <item>Bags</item>
+        <item>Lingerie</item>
+    </string-array>
+
+    <string name="intro_create_story_action">TAP TO ADD A PHOTO</string>
+    <string name="cancel_button">UNFOLLOW</string>
+    <string name="title_activity_youtube">Youtube</string>
+    <string name="action_settings">Settings</string>
+    <string name="red">FF0000</string>
+
+    <!-- List page text -->
+    <string name="list_default_count">0</string>
+    <string name="list_products_static">Products</string>
+    <string name="list_follow_static">Follow this List +</string>
+    <string name="list_default_likes">0</string>
+    <string name="list_default_followers">0</string>
+    <string name="list_likes_static">likes</string>
+    <string name="add_your_comment_here">Add your comment here</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="email_id">EMAIL ID</string>
+    <string name="deep_linking">deep_linking</string>
+    <string name="roposo">Roposo</string>
+    <string name="btn_pick">Pick</string>
+    <string name="btn_pick_mul">Pick Multiple</string>
+    <string name="image_select_color_state_no_color">no_color</string>
+    <string name="image_select_color_state_color">colored</string>
+    <string name="tnc">Terms and Conditions</string>
+    <string name="search_label">Roposo</string>
+    <string name="search_hint">Enter your wish here</string>
+    <!-- Product page text -->
+    <string name="buy_label">BUY</string>
+    <string name="add_label">Add to list</string>
+    <string name="no_internet_page_text">Oops, intenet is not working.</string>
+    <!--Tip Content Texts-->
+
+    <!--Tips on Feed-->
+    <string name="plus_button_tip">Tap here to post</string>
+    <string name="people_tab_tip">Follow celebrities, bloggers and other trendy people</string>
+    <string name="shop_tab_tip">Buy from 400+ sites</string>
+    <string name="similar_products_tip">Shop similar products here</string>
+    <string name="save_to_list_tip">Tap here to save this post to a list</string>
+    <string name="change_ablum_tip">Tap here to change the album</string>
+    <string name="search_bar_tip">Search for trends, people and products</string>
+    <string name="people_follow_tip">Tap here to Follow trendy women and keep up your fashion
+        quotient
+    </string>
+    <string name="like_items_tip">Double tap to Like, what you love</string>
+    <string name="share_items_tip">Tap here to share this on other networks</string>
+    <string name="drawer_tip">Tap here to view updates and change settings</string>
+    <string name="social_bar_options_tip">Tap here to save this story to a list</string>
+
+    <!--Tips on shop page-->
+    <string name="collection_page_like_tip">Double tap to like and get discount notification
+    </string>
+    <string name="collection_filter_tip">Tap here to customize search to your specific needs
+    </string>
+
+    <!--Tips on List -->
+    <string name="add_to_list_feature_tip">You can now save profile, stories and products to a
+        list
+    </string>
+
+    <!--Edit Profile-->
+    <string name="edit_profile_tip">Tap here to edit your profile</string>
+
+
+    <string name="double_tap_hint_text">Try double tap to like</string>
+
+    <string name="got_it_tip_button">GOT IT</string>
+
+
+    <!-- List page -> list page products text -->
+    <string name="ask_friend">Ask a friend</string>
+    <string name="explore">Explore</string>
+
+    <!--Shared Preference Keys-->
+    <string name="show_create_story_tip">cs_tip</string>
+
+    <string name="show_swipe_card_tip">card_tip</string>
+    <string name="show_double_tap_tip_feed">feed_like_tip</string>
+    <string name="show_double_tap_blocker_tip">double_tap_blocker</string>
+
+    <string name="Yes">Yes</string>
+    <string name="OK">OK</string>
+    <string name="user_id">UserId</string>
+
+    <string name="google_app_id">209656093722</string>
+
+    <string name="user_name_text">Reply to
+        <b>$s1</b>
+    </string>
+    <string name="mark_inappropriate">Mark as inappropriate</string>
+
+    <!---Invites-->
+    <string name="syn_from">SYNC FROM %1$s</string>
+    <string name="text_more">MORE</string>
+    <string name="text_less">LESS</string>
+
+    <!--IntroFlow-->
+    <string name="hi_lets_know_you_better">Hi %1$s,</string>
+    <string name="start">START</string>
+    <string name="select_topics">Choose %1$d or more interests</string>
+    <string name="select_zero_topics">Choose more interests</string>
+    <string name="select_story">Like some stories! \nHelp us understand your taste</string>
+    <string name="swipe_tip_to_follow">Swipe right to follow or left to skip</string>
+    <string name="ok_got_it">OK GOT IT !</string>
+    <string name="no_result_found_for">No result found for \"%1$s\"</string>
+    <string name="double_tap">Double tap to like a post.</string>
+    <string name="number_of_followers">%1$d FOLLOWERS</string>
+    <string name="building_feed">Building your feed...</string>
+    <string name="trending_stories">Trending Stories</string>
+    <string name="your_interest">Posts by interests</string>
+    <string name="add_interest">Add</string>
+    <string name="add_more_interest">Edit interests</string>
+    <string name="views_and_likes">Views and Likes</string>
+    <plurals name="number_of_followers">
+        <item quantity="one">FOLLOWER</item>
+        <item quantity="other">FOLLOWERS</item>
+    </plurals>
+    <plurals name="interest_selected_count">
+        <item quantity="one">interest selected</item>
+        <item quantity="other">interests selected</item>
+    </plurals>
+
+    <!--Web View -->
+    <string name="exitWebView">BACK TO ROPOSO</string>
+    <string name="likeOnWebView">LIKE</string>
+    <string name="onRoposo">ON ROPOSO</string>
+
+    <string name="add_a_caption">Add a caption</string>
+    <string name="dummy_timer">15s</string>
+    <string name="retake">Retake</string>
+    <string name="finish">FINISH</string>
+
+
+    <!--Add Location -->
+    <string name="location_optional_autocomplete_hint">Add a Location</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_load_nearby">Access to the location service is required to load nearby places.</string>
+    <string name="permission_rationale_custom_location">Turn on location for this device to check-in.</string>
+
+
+    <!-- This string is presented to users when they attempt to click something that indicates they
+        can watch a video but it turns out we can't show the video. -->
+    <string name="video_id_not_valid">Sorry, there appears to be a problem with the video url.</string>
+    <string name="no_like_text">Be the first one to like</string>
+    <string name="self_like_text">Liked by you</string>
+
+
+    <!--strings for image editing app-->
+
+
+    <string name="triangle_down">▼</string>
+    <string name="record_tip_text">Press and hold to record</string>
+    <string name="record_text">Hold for video, tap for photo</string>
+
+
+    <string name="like_game_hint_on_single_tap">Double tap on image to like</string>
+    <string name="game_end_message">Awesome! Keep liking good posts</string>
+    <string name="heart_count_text">%1$s hearts left. Going great!</string>
+    <string name="like_blocker_card_message">Double tap to like this post!</string>
+    <string name="like_game_0_msg">Like %1$s posts to finish the game</string>
+    <string name="like_game_1_msg">Only %1$s more to go!</string>
+    <string name="like_game_7_5_msg">You are almost there!</string>
+    <string name="final_like_game_message">You just made a few people happy! Keep liking good posts.</string>
+    <string name="filter_button_text">FILTERS</string>
+    <string name="reset_filter_button_text">Reset filters</string>
+    <string name="search_on_roposo_text">Search \"%1$s\" on Roposo</string>
+
+    <string name="people_posted_on_topic">%1$s people have recently posted on %2$s</string>
+    <string name="add_topic_optional">Add Topic (Optional)</string>
+    <string name="start_marker">Start marker</string>
+    <string name="end_marker">End marker</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="choose_audio">Add Music from Library</string>
+    <string name="record">Record</string>
+    <string name="select">Select</string>
+    <string name="change_audio">Change Audio</string>
+    <string name="change_music">Change Music</string>
+
+    <string name="request_sent_text">You can only send message up to<b>160</b> characters unless %1$s accepts your chat request </string>
+    <string name="processing_audio">Processing your audio…</string>
+    <string name="chat_fragment_tag">chat_fragment_tag</string>
+    <string name="preview">PREVIEW</string>
+    <string name="add_audio">Add Audio</string>
+
+    <string name="add_address">New Address</string>
+
+    <string name="select_category">Select Category</string>
+    <string name="requesting">Requesting…</string>
+    <string name="request_sent">Request sent</string>
+
+
+    <string name="sync_account_type">roposo.com</string>
+
+    <string name="follow_text">FOLLOW</string>
+    <string name="follow_all">FOLLOW ALL</string>
+    <string name="fpv_banner">Follow the most influential Bloggers \n of the time</string>
+    <string name="like_text">Like</string>
+    <string name="liked_text">Liked</string>
+
+    <string name="no_comment_text">Be the first one to comment on this post</string>
+
+    <string name="notification_mute_success">Notifications muted successfully.</string>
+    <string name="default_error_message">Something went wrong, please try again.</string>
+    <string name="notification_unmute_success">Notifications unmuted successfully.</string>
+    <string name="edit_story">Edit Post</string>
+    <string name="make_profile_picture">Make this picture profile photo</string>
+    <string name="save_screen">Save screen</string>
+    <string name="delete_story">Delete this story</string>
+
+    <!--Share text values-->
+    <string name="hash_tags_list">#roposo #thebazaar #roposochattobuy #fashion #shopping #shop #buy #seller #newarrival #onlineshopping #latesttrend #fashionpost #fashionlove #fashionoftheday #fashionlook #fashionlover #trending #trendyfashion #onlineboutique #onlinestore #onlineshop</string>
+    <string name="hash_tags_list_short">#roposo #thebazaar #roposochattobuy #shopping </string>
+    <string name="apps_flyer_key">cGCFUtT8JJhJcnpsnnibUa</string>
+    <string name="gcm_sender_id">209656093722</string>
+
+    <string name="already_user">Already have an account?</string>
+
+
+    <string name="report_this_user">Report this user</string>
+    <string name="truecaller_signup_error">Unable to login as this account does not exist. Kindly signup through Truecaller.</string>
+
+
+    <string-array name="date_array">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+    </string-array>
+
+
+    <string-array name="month_array">
+        <item>January</item>
+        <item>Feburary</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+
+    <!--Adding Language string-->
+    <string name="done">DONE</string>
+    <string name="retry">Retry</string>
+    <string name="tv_by_the_people">TV by the People</string>
+    <string name="new_user">NEW USER</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="terms_and_condition"><![CDATA[By creating an account, you agree to our Terms and Conditions.]]></string>
+    <string name="facebook_connect_error_message">Unable to connect to Facebook. Please try again later or login using your email address.</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="private_number_information">Your number will be kept private.</string>
+    <string name="send_otp">SEND OTP</string>
+    <string name="login">Login</string>
+    <string name="facebook_login_discontinued">Facebook Login Discontinued</string>
+    <string name="email_login_discontinued">Email Login Discontinued</string>
+    <string name="gmail_login_discontinued">Gmail Login Discontinued</string>
+    <string name="verify_your_number">Verify your number</string>
+    <string name="hi">Hi</string>
+    <string name="login_method_discontinue_message">, from now onwards, you will only be able to login with your phone number</string>
+    <string name="enter_10_digit_number">Please enter a valid 10 digit number.</string>
+    <string name="please_entr_a_valid_number">Please enter a valid number.</string>
+    <string name="ask_for_opt_msg">Please enter the 4-digit password received through SMS.</string>
+    <string name="invalid_email_id">Invalid Email id</string>
+    <string name="ok">OK</string>
+    <string name="create_account">Create Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="mm_dd_yyyy">mm/dd/yyyy</string>
+    <string name="your_birthday_won_t_be_shown_publicly">Your birthday won\'t be shown publicly</string>
+    <string name="select_gender">Select gender</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="others">Others</string>
+    <string name="edit_number">EDIT NUMBER</string>
+    <string name="enter_the_4_digit_one_time_password_we_have_sent_you_on">Enter the 4-digit one time password we have sent you on</string>
+    <string name="skip">SKIP</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="resend">RESEND</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="login_using_email_id">Login using email id</string>
+    <string name="enter_email">Enter email</string>
+    <string name="password">Password</string>
+    <string name="show">SHOW</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="hide">HIDE</string>
+    <string name="no_empty_password">Password must not be empty</string>
+    <string name="invite_your_friends">INVITE YOUR FRIENDS</string>
+    <string name="search_friends">Search Friends</string>
+    <string name="all_friends">ALL FRIENDS</string>
+    <string name="unselect_all">UNSELECT ALL</string>
+    <string name="no_result_found">No result found!</string>
+    <string name="do_it_later">DO IT LATER</string>
+    <string name="invite_friends_caps">INVITE FRIENDS</string>
+    <string name="select_all">SELECT ALL</string>
+    <string name="leave">LEAVE</string>
+    <string name="help_us_nunderstand_nwhat_you_like">Help us\nunderstand\nwhat you like</string>
+    <string name="next">NEXT</string>
+    <string name="like">Like</string>
+    <string name="liked">LIKED</string>
+    <string name="choose_manually">CHOOSE MANUALLY</string>
+    <string name="follow">FOLLOW</string>
+    <string name="build_yr_feed">BUILD YOUR FEED</string>
+    <string name="follow_page_secondary_title">We think you will find these people interesting</string>
+    <string name="request_a_post">REQUEST A POST</string>
+    <string name="followed">FOLLOWED</string>
+    <string name="_1_d_followers">%1$d FOLLOWERS</string>
+    <string name="network_error_message">Something went wrong, Try again.</string>
+    <string name="upload_picture">Upload picture</string>
+    <string name="import_from_facebook">IMPORT FROM FACEBOOK</string>
+    <string name="add_a_photo">Add a photo</string>
+    <string name="setting_up_your_account">SETTING UP \nYOUR ACCOUNT</string>
+    <string name="add_profile_photo">ADD PROFILE PHOTO</string>
+    <string name="help_friend_thorough_your_photo">to help your friends discover you on Roposo</string>
+    <string name="email">Email</string>
+    <string name="or">OR</string>
+    <string name="phone">PHONE</string>
+    <string name="google">Google</string>
+    <string name="facebook_text">Facebook</string>
+    <string name="enter_your_name">Please enter your name</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="wrong_name_confirm_message">"Are you sure your name is %s"</string>
+    <string name="gender_select_warning">Please select a gender</string>
+    <string name="select_a_date">Select the date</string>
+    <string name="send_password_reset_link">SEND PASSWORD RESET LINK</string>
+    <string name="password_link_has_been_sent_to">Password link has been sent to %s</string>
+    <string name="enter_email_warning">"Please enter email!"</string>
+    <string name="pas_reset_cancel">Request to reset your password has been cancelled</string>
+    <string name="password_reset_failed">Reset password request failed, please try again.</string>
+    <string name="channels">CHANNELS</string>
+    <string name="all_you_need_to_know_about_our_new_update">All you need to know about our new update.</string>
+    <string name="watch_now">Watch now</string>
+    <string name="see_more">See more</string>
+    <string name="chat_to_buy">CHAT TO BUY</string>
+    <string name="loading_posts">Loading posts</string>
+    <string name="building_your_feed">Building your feed…</string>
+    <string name="shuffe_string">Looking for something different…</string>
+    <string name="go_to">GO TO</string>
+    <string name="add_comment">Comment</string>
+    <string name="invite_friends_drawer">Invite Friends</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="help_us_to_improve">Help us improve more</string>
+    <string name="how_roposo_works">How Roposo works?</string>
+    <string name="intro_to_roposo">Introduction to Roposo</string>
+    <string name="how_to_use_roposo_app">How to use the App</string>
+    <string name="edit_profile_text">EDIT PROFILE</string>
+    <string name="drawer_text"><![CDATA[TERMS & CONDITIONS]]></string>
+    <string name="change_dp">" Change DP "</string>
+    <string name="upload_text_msg">Uploading…</string>
+    <string name="followers">Followers</string>
+    <string name="follower">Follower</string>
+    <string name="requested">REQUESTED</string>
+    <string name="adding_location">Adding location…</string>
+    <string name="location_update_msg">Failed to update location, please try again.</string>
+    <string name="create">Create</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_library">Choose from Library</string>
+    <string name="view_photo">View Photo</string>
+    <string name="cancel">Cancel</string>
+    <string name="storage_permission_text">Please grant storage permission to Roposo</string>
+    <string name="about_us">ABOUT US</string>
+    <string name="terms_amp_conditions"><![CDATA[TERMS & CONDITIONS]]></string>
+    <string name="send_feed_via">Send feedback via</string>
+    <string name="share_on">Share on</string>
+    <string name="facebook_first_capital">Facebook</string>
+    <string name="whatsapp_first_capital">WhatsApp</string>
+    <string name="twitter_first_capital">Twitter</string>
+    <string name="more">More</string>
+    <string name="save_to_list">SAVE TO LIST</string>
+    <string name="Views">" VIEWS"</string>
+    <string name="comments">"COMMENTS"</string>
+    <string name="feed_home_title">Feed</string>
+    <string name="share">Share</string>
+    <string name="copy_link">Copy Link</string>
+    <string name="other_apps">Other Apps</string>
+    <string name="download_post">Download Post</string>
+    <string name="loading_profile">Loading profile…</string>
+    <string name="be_the_first_one_to_comment">Be the first one to comment</string>
+    <string name="add_a_comment">Add a Comment</string>
+    <string name="send">SEND</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="bazaar">Bazaar</string>
+    <string name="search_in_posts">Search in Posts</string>
+    <string name="search_in_producs">Search in Products</string>
+    <string name="search_in_bazaar">Search in Bazaar</string>
+    <string name="search_in_profile">Search in Profile</string>
+    <string name="change_search_category">Change Search Category</string>
+    <string name="posts_text">Posts</string>
+    <string name="bazaar_text">Bazaar</string>
+    <string name="search_and_it_shall_be_found">Search and it shall be found</string>
+    <string name="searching_msg">Please wait while we are \n finding \'</string>
+    <string name="whoops">Whoops!</string>
+    <string name="no_results_found_for_e_n_try_another_search">No Results found for ‘e’ \n Try another search</string>
+    <string name="see_new_updates">SEE NEW\nUPDATES</string>
+    <string name="following_text">FOLLOWING</string>
+    <string name="products_text">products</string>
+    <string name="mark_all_unread_text">Mark All Read</string>
+    <string name="mark_all_unread">Mark All Read</string>
+    <string name="notifications">Notifications</string>
+    <string name="delete_comments">Delete comment</string>
+    <string name="yout_followed">"You Followed "</string>
+    <string name="try_again">Try Again</string>
+    <string name="comment_deleted_success_msg">Comment deleted successfully</string>
+    <string name="comment_delete_failed_msg">Failed to delete your comment. Please try again</string>
+    <string name="comment_flag_inp_suc_msg">Comment flagged inappropriate</string>
+    <string name="comment_inappropriate_f_message">Failed to mark the comment inappropriate</string>
+    <string name="Reply">Reply</string>
+    <string name="reply_to">Reply to %s</string>
+    <string name="liked_by">Liked By</string>
+    <string name="you_inspired">You inspired</string>
+    <string name="people">People</string>
+    <string name="person">Person</string>
+    <string name="share_this_post">SHARE THIS POST</string>
+    <string name="preparing_language">Preparing Roposo in your language</string>
+    <string name="by_signing_up_you_agree_to_our_terms_condition"><![CDATA[By signing up, you agree to our terms & condition]]]></string>
+    <string name="privacy">Privacy</string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="rate_us">RATE US</string>
+    <string name="edit_interest">EDIT INTEREST</string>
+    <string name="people_you_follow">PEOPLE YOU FOLLOW</string>
+    <string name="no_client_installed">There is no email client installed.</string>
+    <string name="cannot_send_email">Cannot send email!</string>
+    <string name="feedback">FEEDBACK</string>
+    <string name="follow_us_on_fb">FOLLOW US ON FB</string>
+    <string name="follow_us_on_twitter">FOLLOW US ON TWITTER</string>
+    <string name="why_roposo">WHY ROPOSO ?</string>
+    <string name="logout">Logout</string>
+    <string name="settings">Settings</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="terms_conditions"><![CDATA[TERMS & CONDITIONS]]></string>
+    <string name="block_list">BLOCK LIST</string>
+    <string name="min">min</string>
+    <string name="connect_accounts">Connect Accounts</string>
+    <string name="manage_address">Manage Address</string>
+    <string name="discover_people">Discover People</string>
+    <string name="change_language">Change Language</string>
+    <string name="please_select_an_address">Please select an address</string>
+    <string name="something_went_wrong">Something went wrong. Please try again</string>
+    <string name="no_internet_msg">Unable to connect to internet, Please try again later</string>
+    <string name="download_error_msg">Unable to load video</string>
+    <string name="delete">Delete</string>
+    <string name="select_from_older_addresses">Select from older addresses</string>
+    <string name="loading_addresses">Loading Addresses</string>
+    <string name="add_new_address">ADD NEW ADDRESS</string>
+    <string name="select_address">Select Address</string>
+    <string name="save_caps">SAVE</string>
+    <string name="please_enter_valid">Please enter valid %s</string>
+    <string name="pincode">Pincode</string>
+    <string name="city">City</string>
+    <string name="state">state</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="address_hint">Flat / House No. / Floor / Building</string>
+    <string name="landmark">Landmark (optional)</string>
+    <string name="people_you_blocked">PEOPLE YOU BLOCKED</string>
+    <string name="click_here_to_share">Click here to share</string>
+    <string name="your_post_inspired">your post inspired %s People</string>
+    <string name="you_are_star">You are a star on</string>
+    <string name="you_are_killing">You are killin\' it!</string>
+    <string name="you_are_awe_inspiring">You are awe-inspiring!</string>
+    <string name="you_are_dazzling">You are dazzling!</string>
+    <string name="edit_profile_photo">Edit Profile Photo</string>
+    <string name="roposo_handle_is_a_unique_identity_of_your_profile">Roposo handle is a unique identity of your profile</string>
+    <string name="may_the_odds_be_ever_in_your_favour">May the odds be ever in your favour.</string>
+    <string name="are_you_a_business">Are you a business?</string>
+    <string name="for_influencers">For influencers</string>
+    <string name="redirect_user_to_your_blog_website">Redirect user to your blog/website</string>
+    <string name="get_this_for_free">Get this for free</string>
+    <string name="or_buy_plan">Or buy plan</string>
+    <string name="select_an_action_button_to_show_on_your_post">Select an action button to show on your post</string>
+    <string name="selling_via_roposo_chat">Selling via Roposo chat</string>
+    <string name="redirection_to_your_website">Redirection to your website</string>
+    <string name="redirection_to_your_blog">Redirection to your blog</string>
+    <string name="verify">VERIFY</string>
+    <string name="add_more_locations">Add more locations</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="phone_number_will_be_visible_to_everyone">Phone number will be visible to everyone</string>
+    <string name="enter_your_handle">Enter your handle</string>
+    <string name="about_yourself">About yourself</string>
+    <string name="enter_your_twitter_handle">Enter your twitter handle</string>
+    <string name="enter_your_link">Enter your link</string>
+    <string name="enter_your_location">Enter your location</string>
+    <string name="uploading">Uploading</string>
+    <string name="sending_otp">Sending OTP</string>
+    <string name="add_a_valid_mobile_number">Add a valid mobile number</string>
+    <string name="username_cannot_be_empty">Username cannot be empty</string>
+    <string name="failed_to_save_right_now_try_again">Failed to save right now. Try again after sometime.</string>
+    <string name="please_set_a_valid_handle">Entered handle is invalid, please set a valid handle.</string>
+    <string name="saving">Saving</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit? Your changes will be discarded.</string>
+    <string name="please_grant_storage_permission_to_roposo">Please grant storage permission to Roposo</string>
+    <string name="handle_not_editable">You have already set your handle, it can not be edited.</string>
+    <string name="unable_to_upload_image_at_the_moment">Unable to upload image at the moment</string>
+    <string name="save_to">SAVE TO</string>
+    <string name="lists_are_awesome">Lists are Awesome</string>
+    <string name="they_help_you_organise_your_world">They help you organise your world</string>
+    <string name="new_list">New list</string>
+    <string name="existing_lists">EXISTING LISTS</string>
+    <string name="oops_something_went_wrong">Oops! Something went wrong.</string>
+    <string name="view_list">View List</string>
+    <string name="please_add_a_title_to_this_list">Please add a title to this list</string>
+    <string name="saved">Saved</string>
+    <string name="add_description">Add a description (optional)</string>
+    <string name="add_title">Add a title</string>
+    <string name="more_comments">More Comments</string>
+    <string name="update_your_app">Update your app</string>
+    <string name="update_app">UPDATE APP</string>
+    <string name="story_doesnot_exist">Story doesn\'t exist</string>
+    <string name="video_play_error">Sorry! This video cannot be played</string>
+    <string name="close">Close</string>
+    <string name="media_has_been_saved">Media has been saved to your gallery</string>
+    <string name="cannot_save_image_or_create_bitmap">Cannot save image or create bitmap. Please try again</string>
+    <string name="cannot_save_video">Cannot save video. Please try again</string>
+    <string name="content_not_loaded_yet">Content not loaded yet. Please try again</string>
+    <string name="share_is_in_progress">Share is in progress. Please wait</string>
+    <string name="change">change</string>
+    <string name="please_login_to_mark_the_post_spam">Please login to mark the post spam</string>
+    <string name="failed_to_mark_the_post_spam">Failed to mark the post spam</string>
+    <string name="post_flagged_as_inappropriate">Post flagged as inappropriate</string>
+    <string name="report_post">Report Post</string>
+    <string name="are_you_sure_you_want_to_mark_this_post_as_inappropriate">Are you sure you want to mark this post as inappropriate?</string>
+    <string name="notifications_for_this_post">mute notifications for this post</string>
+    <string name="unmute">Unmute</string>
+    <string name="mute">Mute</string>
+    <string name="post_deleted_successfully">Post deleted successfully</string>
+    <string name="failed_to_delete_your_post">Failed to delete your post. Please try again</string>
+    <string name="are_you_sure_you_want_to_delete_this_post">Are you sure you want to delete this post?</string>
+    <string name="profile_pic_updated">Profile pic updated</string>
+    <string name="unable_to_update_try_again">Unable to update, Try again.</string>
+    <string name="change_privacy">Change Privacy</string>
+    <string name="are_you_sure_you_want_to_mark_this_story">Are you sure you want to mark this story as %s ?</string>
+    <string name="posts_privacy_updated">Post\'s privacy updated</string>
+    <string name="failed_to_update_your_posts_privacy">Failed to update your post\'s privacy</string>
+    <string name="make_post_public">Make this post public</string>
+    <string name="make_post_private">Make this post private</string>
+    <string name="cant_perform_the_action_right_now">Can\'t perform the action right now.</string>
+    <string name="s_public">public</string>
+    <string name="s_private">Private</string>
+    <string name="not_able_to_open_camera">Not able to open camera</string>
+    <string name="camera_disabled_not_able_to_open_camera">Camera disabled. Not able to open camera</string>
+    <string name="flash_is_not_available">Flash is not available</string>
+    <string name="auto_focus_not_available">Auto focus not available</string>
+    <string name="max_story_size_message">You may not post more than %s photos and videos</string>
+    <string name="post_saved_as_draft">Post saved as draft</string>
+    <string name="discard_eiditing_message">Are you sure that you want to discard editing this post?</string>
+    <string name="discard_post_message">Are you sure that you want to discard this post?</string>
+    <string name="youtube_initialisation_error_message">An Error occurred in Youtube Initialization, Check your internet connection.</string>
+    <string name="playing_low_quality_video">Load low quality video from settings.</string>
+    <string name="item">Item</string>
+    <string name="items">Items</string>
+    <string name="camera">Camera</string>
+    <string name="add_youtube_link">Add Youtube Link</string>
+    <string name="use_apostrophe">Use \' %s \' as your current place</string>
+    <string name="as_your_current_place_d">\' as your current place</string>
+    <string name="discard_audio_change">Do you want to discard audio changes?</string>
+    <string name="could_not_record_voice">Couldn\'t record voice!</string>
+    <string name="invalid_audio_message">Invalid audio, Please try again.</string>
+    <string name="voice_recorder_error_message">Could not access voice recorder, Please check your settings</string>
+    <string name="all_photos">All Photos</string>
+    <string name="all_videos">All Videos</string>
+    <string name="all_media">All Media</string>
+    <string name="extend_music_to_next_item">Do you want to extend music next items?</string>
+    <string name="say_something">Say Something!</string>
+    <string name="add_text">Add Text</string>
+    <string name="enable_location_msg">Enable your location from settings</string>
+    <string name="crop_photo">Crop Photo</string>
+    <string name="drag_and_zoom">Drag and zoom to adjust</string>
+    <string name="twitter_connection_failure_msg">Not able to connect Twitter,Try Again</string>
+    <string name="invalid_youtube_url_msg">Please enter a valid Youtube link!</string>
+    <string name="add_story_start">Add \' %s \' as topic</string>
+    <string name="add_topic_end">\" as topic</string>
+    <string name="no_title">No Title</string>
+    <string name="could_not_save_audio_msg">Could not save music on your phone</string>
+    <string name="select_music">Select Music</string>
+    <string name="roposo_music_library">Roposo Music Library</string>
+    <string name="your_phone_library">Your Phone Library</string>
+    <string name="loading">Loading…</string>
+    <string name="search_music">Search Music</string>
+    <string name="more_than_one_month_schedule_msg">Time for scheduling story creation cannot be more than One month from now</string>
+    <string name="early_time_schedule_msg">Cannot schedule story for earlier time</string>
+    <string name="no_sticker_found">No Sticker Found.</string>
+    <string name="try_different_search">Please try a different search.</string>
+    <string name="searching_stickers">Searching Stickers…</string>
+    <string name="add_topic">Add Topic</string>
+    <string name="recent">Recent</string>
+    <string name="stickers">Stickers</string>
+    <string name="loading_stickers">Loading Stickers…</string>
+    <string name="tap_to_retry">Tap here to try again</string>
+    <string name="edit_payment_detail">Edit payment details</string>
+    <string name="choose_color">Choose color</string>
+    <string name="cancel_task">Cancel Task</string>
+    <string name="phone_does_not_support_filter">Your phone doesn\'t support filter features right now.</string>
+    <string name="saving_image">Saving Image…</string>
+    <string name="error_try_again">Some error occurred!\\nPlease try again</string>
+    <string name="add_location">Add Location</string>
+    <string name="post">POST</string>
+    <string name="you_are_posting_from">You are posting from...</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="empty_url">Empty URL</string>
+    <string name="please_enter_url_to_add">Please enter a valid URL to add</string>
+    <string name="small_button">button</string>
+    <string name="tap_to_capture_photo">Tap to capture photo</string>
+    <string name="use_drafted_story">Use Drafted Story</string>
+    <string name="last_story_drafted_like_to_continue">Your last story was saved as a draft. Would you like to continue?</string>
+    <string name="continu">Continue</string>
+    <string name="create_new">Create New</string>
+    <string name="tap_to_click_photo_hold_to_take_video">Tap to click a photo and hold to take a video.</string>
+    <string name="cannot_save_photos">Can\'t save new photos!</string>
+    <string name="free_some_memory">Free some memory by deleting unused apps or photos.</string>
+    <string name="video_too_short">Video too short. Please try again.</string>
+    <string name="inviting">Inviting</string>
+    <string name="video_type_selection_msg">Your image selection will be removed</string>
+    <string name="photo_type_selection_msg">Your video selection will be removed</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="existing_selections_will_be_discarded">Your existing selections will be discarded.</string>
+    <string name="no_photos_or_videos_found">No photos or videos found</string>
+    <string name="loading_products">Loading Products…</string>
+    <string name="no_results_found_for">No result found for %s</string>
+    <string name="try_later">Try Later</string>
+    <string name="unable_to_trim_video">Unable to trim video</string>
+    <string name="invalid_video_try_again">Invalid video, Please try again.</string>
+    <string name="more_options">More Options</string>
+    <string name="not_able_to_record_video">Not able to record video</string>
+    <string name="scheduled_on">Scheduled on:</string>
+    <string name="do_you_want_to_continue">Do you want to continue?</string>
+    <string name="please_enter_price_or_unselect_price">Please enter price or unselect show price</string>
+    <string name="discard_changes">Discard changes</string>
+    <string name="sure_to_discard_changes">Are you sure you want to discard these changes?</string>
+    <string name="discard">Discard</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="select_country">Select Country</string>
+    <string name="new_text">New</string>
+    <string name="cover_picture">Cover picture</string>
+    <string name="use">Use</string>
+    <string name="video">Video</string>
+    <string name="voice_over">Voice Over</string>
+    <string name="music">Music</string>
+    <string name="edit_volume">Edit Volume</string>
+    <string name="your_voiceover">Your Voiceover</string>
+    <string name="record_voiceover">Record Voiceover</string>
+    <string name="add_music">Add Music</string>
+    <string name="for_text">For</string>
+    <string name="both">Both</string>
+    <string name="add_a_product_category_optional">Add a product category(optional)</string>
+    <string name="recent_colon">Recent:</string>
+    <string name="show_price_on_button">Show price on button</string>
+    <string name="price_will_be_private_until_you_reveal">Price will be private until you reveal</string>
+    <string name="to_unlock_more_stickers_invite_your_facebook_friends">To unlock more stickers, Invite your Facebook friends</string>
+    <string name="create_post_now">Create post now</string>
+    <string name="text">Text</string>
+    <string name="keayboard_abbreviated">K</string>
+    <string name="color_abbreviated">C</string>
+    <string name="font_abbreviated">F</string>
+    <string name="effects">Effects</string>
+    <string name="audio">Audio</string>
+    <string name="advanced_settings">Advanced Settings</string>
+    <string name="trim">Trim</string>
+    <string name="remove">Remove</string>
+    <string name="albums">Albums</string>
+    <string name="camera_is_not_available">Camera is not available</string>
+    <string name="tap_here_to_check_app_permissions">Tap here to check app permissions</string>
+    <string name="tap_here_to_change_album">Tap here to change album</string>
+    <string name="loading_your_albums">Loading your albums…</string>
+    <string name="tap_to_start_recording">Tap to start recording</string>
+    <string name="select_a_button_for_your_post">Select a button for your post</string>
+    <string name="become_a_seller_on_roposo">Become a seller on Roposo</string>
+    <string name="schedule_post_view_plans">Schedule post, view plans</string>
+    <string name="become_a_seller">Become a seller</string>
+    <string name="visit_website">Visit website</string>
+    <string name="purchase_buttons_for">Purchase buttons for</string>
+    <string name="schedule_this_story">Schedule this story</string>
+    <string name="cover">Cover</string>
+    <string name="abc">Abc</string>
+    <string name="connected_successfully_as">connected successfully as</string>
+    <string name="disconnected_successfully">disconnected successfully</string>
+    <string name="account">Account</string>
+    <string name="never_miss_posts_from_your_friends">Never miss posts from your friends</string>
+    <string name="roposo_is_amazing_with_friends_connect_with_your_friends_to_enjoy_more">Roposo is amazing with friends. Connect with your friends to enjoy more</string>
+    <string name="connect_with_facebook">Connect with Facebook</string>
+    <string name="connect_with_google">Connect with Google</string>
+    <string name="button_added">Button added: </string>
+    <string name="unable_to_add_comment">Unable to add your comment at the moment. Please try again.</string>
+    <string name="load_more_comments">Load more comments</string>
+    <string name="unlike">Unlike</string>
+    <string name="comment_privacy">Comment Privacy</string>
+    <string name="you_can_change_this_by_text">You can change this by going into settings.</string>
+    <string name="ignore">Ignore</string>
+    <string name="invite_friends">INVITE FRIENDS</string>
+    <string name="comment_deleted_succesfully">Comment deleted successfully</string>
+    <string name="failed_to_delete_comment">Failed to delete comment. Try again</string>
+    <string name="cannot_delete_comment_right_now">Cannot delete the comment right now. Try again later</string>
+    <string name="failed_to_post">Failed to post</string>
+    <string name="make_public">Make Public</string>
+    <string name="this_comment_is_only_visible_to_you">This comment is only visible to you.</string>
+    <string name="cannot_save_photos_free_some_memory">Can\'t save new photos! Free some memory by deleting unused apps or photos.</string>
+    <string name="unable_to_connect_to_roposo">Unable to connect to Roposo. Please try again.</string>
+    <string name="user">User</string>
+    <string name="login_to_mark_comment_inappropriate">Please login to mark the comment inappropriate</string>
+    <string name="chat_with">Chat with %s</string>
+    <string name="sure_you_want_to_block">Are you sure that you want to block this profile ?</string>
+    <string name="enter_correct_otp">Please enter correct OTP</string>
+    <string name="verifying_otp">Verifying OTP</string>
+    <string name="add_to_chat">Add to chat</string>
+    <string name="my">my</string>
+    <string name="in">In</string>
+    <string name="request_could_not_be_completed">Request could not be completed</string>
+    <string name="phone_number_is_verified">Phone number is verified</string>
+    <string name="connecting">Connecting</string>
+    <string name="scroll_down_to_see_more">Scroll down to see more interesting content</string>
+    <string name="have_you_tried_roposo">Hey, have you tried Roposo yet? I think you would like it</string>
+    <string name="invited_you_to_roposo_formatted">%s invited you to Roposo</string>
+    <string name="invitation_sent_to_your_friends">Invitation sent to your friends.</string>
+    <string name="tried_roposo_yet">Hey have you tried Roposo yet? I think you would like it</string>
+    <string name="invite">Invite</string>
+    <string name="invite_from_facebook">Invite from Facebook</string>
+    <string name="unable_to_fetch_facebook_friends">Unable to fetch facebook friends</string>
+    <string name="sync_from_facebook">Sync From Facebook</string>
+    <string name="sync_from_gmail">Sync From Gmail</string>
+    <string name="try_roposo">Try Roposo! Fashion Social Network</string>
+    <string name="request_in_progress">Request is in progress</string>
+    <string name="invite_from_google">Invite from Google</string>
+    <string name="unable_to_fetch_google_friends">Unable to fetch Google friends</string>
+    <string name="connecting_with_google">Connecting with Google</string>
+    <string name="search_format_d">Search %1$s in %2$s</string>
+    <string name="shares">SHARES</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="choose_app_to_share">Choose app to share</string>
+    <string name="check_this_out_on_roposo">Hey! Check this out on Roposo!</string>
+    <string name="media_saved_to_gallery">Media saved to gallery</string>
+    <string name="have_fun_on_roposo_app">Have fun on Roposo App</string>
+    <string name="download_roposo_app">The #RoposoApp is fun, inspiring and trendy! Download it now! #roposo</string>
+
+
+    <!--Chat notifications Strings -->
+    <string name="request_for_price_text">I am interested in this product </string>
+    <string name="reveal_price_text">Price for this product is </string>
+    <string name="reveal_new_price_text">New price for this product is </string>
+    <string name="shorlisted_product_text">I have shortlisted this product </string>
+    <string name="payment_method_text">Please select a payment method</string>
+    <string name="payment_confirm_text">I am interested in paying through %1$s </string>
+    <string name="enter_product_price_text">ENTER THE PRODUCT PRICE </string>
+    <string name="out_of_stock_text">Sorry, the product requested for is out of stock</string>
+    <string name="service_not_available_text">Sorry, this service is not available</string>
+    <string name="seller_marked_oos_text">This product is out of stock now</string>
+    <string name="contact_detail_text">These are my contact details </string>
+    <string name="share_address">Please share your address </string>
+    <string name="shared_image">Shared a photo.</string>
+    <string name="product_removed_text">This product is removed from cart </string>
+    <string name="browse_more_products_text">I will get back to you shortly, meanwhile you can browse more products from my shop</string>
+    <string name="browse_more_message">This card lets the buyer browse more products from your shop while you are offline. This is an automated card sent on your behalf.</string>
+    <string name="share_address_auto_push_message">This card lets the buyer share their delivery address with you. This is an automated card sent on your behalf.</string>
+    <string name="payment_auto_push_message">This card lets the buyer select a payment method to place their order. This is an automated card sent on your behalf.</string>
+    <plurals name="checkout_product_text">
+        <item quantity="one">I would like to buy this product</item>
+        <item quantity="other">I would like to buy these products</item>
+    </plurals>
+
+
+    <string name="no_messages_yet">No messages yet!</string>
+    <string name="looks_like_you_haven_t_initiated_a_conversation_yet">Looks like you haven\'t initiated a conversation yet</string>
+    <string name="start_chat">START CHAT</string>
+    <string name="there_is_some_network_issue_nplease_retry_to_load">There is some network issue.\nPlease retry to load</string>
+    <string name="inbox">INBOX</string>
+    <string name="loading_previous_chat">Loading previous chat...</string>
+    <string name="connecting_string">Connecting...</string>
+    <string name="not_conencted_tap_to_connect">Not connected, Tap to connect</string>
+    <string name="connected">Connected</string>
+    <string name="refresh_is_already_progress">Refresh is already in progress...</string>
+    <string name="sync_failed">Sync Failed try again</string>
+    <string name="selected">selected</string>
+    <string name="characters_remaining">%1$d characters remaining</string>
+    <string name="shortlisted">Shortlisted</string>
+    <string name="sent_you_a_chat_request">Sent you a chat request</string>
+    <string name="reject">REJECT</string>
+    <string name="accept">ACCEPT</string>
+    <string name="request">REQUEST</string>
+    <string name="type_a_message">Type a message…</string>
+    <string name="your_request_sent">Your request has been sent</string>
+    <string name="msg_limit_text">You can only send message upto\n160 characters unless %1$s accepts your chat request.</string>
+    <string name="talk_to">"Talk to "</string>
+    <string name="no_internet_try_again">Not connected with internet,try again.</string>
+    <string name="blocked">Blocked</string>
+    <string name="request_received">Request Received</string>
+    <string name="unable_to_send_request_try_again">Unable to send request,Try again</string>
+    <string name="buy">BUY</string>
+    <string name="view_cart">VIEW</string>
+    <string name="online">online</string>
+    <string name="oops">Oops!</string>
+    <string name="invite_to_chat">INVITE TO CHAT</string>
+    <string name="start_conversation">Start Conversation</string>
+    <string name="did_not_find">"We didn't find "</string>
+    <string name="here">" here"</string>
+    <string name="invite_friends_to_chat">INVITE FRIENDS TO CHAT</string>
+    <string name="suggested_users">Suggested Users</string>
+    <string name="out_of_stock">OUT OF STOCK</string>
+    <string name="total">Total</string>
+    <string name="discount">Discount</string>
+    <string name="these_are_my_contact_details">These are my contact details</string>
+    <string name="view_all_products">"View all %1$s products"</string>
+    <string name="i_would_like_to_buy_these_products">I would like to buy these products</string>
+    <string name="view_products">View Products</string>
+    <string name="product">Product</string>
+    <string name="interested_in_service">Hey! I am interested in booking this service</string>
+    <string name="service_not_available">SERVICE NOT AVAILABLE</string>
+    <string name="interest_in_buying_product">Hey! I am interested in buying this product</string>
+    <string name="chat_request">Chat Request</string>
+    <string name="chat_requests">Chat Requests</string>
+    <string name="delete_address_confirm">Are you sure that you want to delete this address ?</string>
+    <string name="address">Address</string>
+    <string name="reveal_price">REVEAL PRICE ₹%d</string>
+    <string name="share_address_text">SHARE ADDRESS</string>
+    <string name="how_would_you_pay">How would you like to pay?</string>
+    <string name="cash_on_delivery">CASH ON DELIVERY</string>
+    <string name="i_will_be_paying">"I will be paying through "</string>
+    <string name="sentence_completion">.</string>
+    <string name="long_press_to_copy_account_number">Long press to copy account number</string>
+    <string name="account_number_copied_to_clipboard">Account Number copied to clipboard</string>
+    <string name="long_press_to_copy_phone_number">Long press to copy phone number</string>
+    <string name="phone_no_copied">Phone Number copied to clipboard</string>
+    <string name="on">"on "</string>
+    <string name="account_text">" account "</string>
+    <string name="place_order">PLACE ORDER</string>
+    <string name="requested_for_price">Requested for price</string>
+    <string name="shortlist">SHORTLIST</string>
+    <string name="offer_new_price">OFFER NEW PRICE</string>
+    <string name="edit_price">EDIT PRICE</string>
+    <string name="i_am_interested_in_this">I am interested in this</string>
+    <string name="send_offered_price">SEND OFFERED PRICE</string>
+    <string name="send_price">SEND PRICE</string>
+    <string name="total_price">Total price :</string>
+    <string name="phone_no">Phone no.</string>
+    <string name="browse_more_products">BROWSE MORE PRODUCTS</string>
+    <string name="bank">Bank</string>
+    <string name="ifsc_code">IFSC Code</string>
+    <string name="account_no">Account no.</string>
+    <string name="pay_using">Do you want to confirm the seller that you will be paying using</string>
+    <string name="keep_amount_ready">\? कृपया डिलीवरी के समय तैयार राशि रखें.</string>
+    <string name="on_below_bank_account">" on the below bank account?"</string>
+    <string name="payable_amount_on_cash_on_delivery">Payable amount on Cash on delivery</string>
+    <string name="your_current_app_version_does_not_support_this_content">Your current app version does not support this content.</string>
+    <string name="your_shortlisted_products">Your shortlisted products</string>
+    <string name="create_a_new_product">Create a new product</string>
+    <string name="add_a_caption_optional">Add a caption(optional)</string>
+    <string name="apply_button">Apply Button</string>
+    <string name="sell_your_products_using_roposo_chat">Sell your products using Roposo Chat</string>
+    <string name="paid">Paid</string>
+    <string name="add_more_details_to_expand_your_reach">Add more details to expand your reach</string>
+    <string name="posting">Posting...</string>
+    <string name="renew_your_plan">Renew your plan</string>
+    <string name="send_payment_information">SEND PAYMENT INFORMATION</string>
+    <string name="enter_total_amount_you_want_to_receive">Enter total amount you want to receive</string>
+    <string name="enter_some_price_value_to_send_info">Enter some price value to send information.</string>
+    <string name="enter_price_which_is_greater_than_0">Enter price which is greater than 0</string>
+    <string name="view_profile">View Profile</string>
+    <string name="block_this_user">Block this user</string>
+    <string name="report">Report</string>
+    <string name="delete_chat">Delete Chat</string>
+    <string name="unblock_this_user">Unblock this user</string>
+    <string name="are_you_sure_you_want_to_this_unblock">Are you sure you want to this unblock?</string>
+    <string name="unblock">UNBLOCK</string>
+    <string name="are_you_sure_you_want_to_this_block">Are you sure you want to this block?</string>
+    <string name="block">BLOCK</string>
+    <string name="are_you_sure_you_want_to_delete_chat">Are you sure you want to delete chat?</string>
+    <string name="unblock_to_block_try_again">Unable to block,Try again</string>
+    <string name="delete_selected_chat">Delete selected chat</string>
+    <string name="share_image">Share Image</string>
+    <string name="share_my_address">Share My Address</string>
+    <string name="ask_for_address">Ask for Address</string>
+    <string name="share_payment_information">Share Payment Information</string>
+    <string name="payment_options">Payment Options</string>
+    <string name="please_add_payment_methods_restart_app"><![CDATA[Please add payment methods & restart app to share payment information?]]></string>
+    <string name="add_now">ADD NOW</string>
+    <string name="later">LATER</string>
+    <plurals name="delete_selected_chat">
+        <item quantity="one">Delete selected chat</item>
+        <item quantity="other">Delete selected chats</item>
+    </plurals>
+    <string name="twitter_text">Twitter</string>
+    <string name="copy_url">Copy Url</string>
+    <string name="instagram_text">Instagram</string>
+    <string name="some_users_post">%s\'s Post</string>
+    <string name="roposo_app">Roposo App</string>
+    <string name="some_users_profile_d">%s\'s Profile</string>
+    <string name="repost_on_roposo">Repost on Roposo</string>
+    <string name="record_video_tip_text">Hold for video, tap for photo</string>
+    <string name="advance_setting">Advanced Settings</string>
+    <string name="add_button">Add Button</string>
+    <string name="failed">Failed!</string>
+    <string name="posted">Posted</string>
+    <string name="story_status">Story Status</string>
+    <string name="forgot_password_email_not_msg">Didn\'t received the mail? \nCheck your spam folder for a message\ncoming from info@roposo.com</string>
+    <string name="hold_for_video_tap_for_photo">Hold for video, tap for photo</string>
+    <string name="logout_confirm">Are you sure you want to log out?</string>
+    <string name="logging_out">Logging out</string>
+    <string name="no_search_result">No Results found for %s\n Try another search</string>
+    <string name="write_feedback">Please write some feedback</string>
+    <string name="unable_to_send_feedback">Unable to send feedback now.</string>
+    <string name="enter_d_o_b">ENTER DATE OF BIRTH</string>
+    <string name="help_you_understand_better">to help us understand you better</string>
+    <string name="please_enter_d_o_b">Please enter your date of birth.</string>
+    <string name="select_date">Select the date</string>
+    <string name="sure_you_want_to_block_formatted">"Are you sure that you want to block %s ?"</string>
+    <string name="create_tip">Post photos, videos, selfies and anything you like</string>
+    <string name="feed_tip">Posts from people you follow will appear here</string>
+    <string name="play_pause_tip">Tap anywhere on the screen to pause the channel</string>
+    <string name="double_tap_tip">Double tap anywhere to like a post</string>
+    <string name="chat_to_buy_tip">Chat with the seller directly to buy this product</string>
+    <string name="swip_left_tip">SWIPE LEFT to see the next post</string>
+    <string name="swipe_right_tip">SWIPE RIGHT to see the last post</string>
+    <string name="profile_tip_1">Click here to view your profile</string>
+    <string name="profile_tip_2">Your profile, notifications and chats are here</string>
+    <string name="nearby_posts">Nearby Posts</string>
+    <string name="on_board_profile_click_inst">You can view a profile after setting up your account</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="edit_this_post">Edit this post</string>
+    <string name="use_this_image_as_profile_picture">Use this image as profile picture</string>
+    <string name="delete_this_post">Delete this post</string>
+    <string name="seen">Seen</string>
+    <string name="sent">Sent</string>
+    <string name="exlusive_collection_on_roposo">Checkout my exclusive\ncollection on Roposo</string>
+    <string name="follow_me_on_roposo">Follow me on Roposo</string>
+    <string name="post_story_chat_text">"Chat with me on Roposo to get it! "</string>
+    <string name="post_creation_share_post_text">Hey! Checkout my post on Roposo</string>
+    <string name="posted_successfully">Posted Successfully</string>
+    <string name="increase_your_reach">Increase your reach</string>
+    <string name="increase_your_customer_by_sharing">Increase your reach by sharing\nthis product on</string>
+    <string name="to_buy_serach_me">To buy, search %s\non Roposo App</string>
+    <string name="facebook_group">Facebook\nGroup</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="insta_copy_inst">Description copied to clipboard</string>
+    <string name="insta_des_instructions">1. Open in Instagram\n2. Tap in Write a caption…\n3. Paste the copied description(tap on the textbox again)</string>
+    <string name="choose_language">Choose Language</string>
+    <string name="choose_lang_des">Choose your language to proceed further</string>
+    <string name="search_for_stickers">Search for stickers</string>
+    <string name="load_nearby_places">Load nearby places</string>
+    <string name="add_caption">Add caption...</string>
+    <string name="uploading_yout_image">Uploading your image...</string>
+    <string name="uploading_your_post">Uploading your post...</string>
+    <string name="waiting_for_internet">Waiting for internet</string>
+    <string name="finishing_up">Finishing up...</string>
+    <string name="preparing_your_post">Preparing your post...</string>
+    <string name="posted_successfully_in">Posted successfully in</string>
+    <string name="view_post">VIEW POST</string>
+    <string name="share_with_your_friends">Share with your friends</string>
+    <string name="help_us_understand_your">Like 10 posts! \nHelp us understand your taste</string>
+    <string name="like_n_posts">Like %s post! \n Help us understand your taste</string>
+    <string name="like_n_more_to_continue">Like %s more to continue</string>
+    <string name="double_tap_to_like_a_post">Double tap to like a post!</string>
+    <string name="double_tap_to_like">Double-tap anywhere to like.</string>
+    <string name="these_people_share_your_interests_npick_a_few_to_follow">These people share your interests. \nPick a few to follow.</string>
+    <string name="based_on">Based on your interest \nwe have followed a few people for you</string>
+    <string name="chat">Chat</string>
+    <string name="call">Call</string>
+    <string name="invite_friends_via">Invite Friends Via</string>
+    <string name="messenger">Messenger</string>
+    <string name="sms">SMS</string>
+    <string name="offline_no_internet_text_message">You are offline. The Internet is unavailable.</string>
+    <string name="fb_friends_added">Facebook friends added.</string>
+    <string name="unable_to_connect_with_gmail">Unable to connect with Gmail, Try another options for now.</string>
+    <string name="share_your_stylish_picture">Share your stylish picture</string>
+    <string name="tap_here_and_start_posting">Tap here and start posting!</string>
+    <string name="tap_here_to_retry">Tap here to retry</string>
+    <string name="refresh">Refresh</string>
+    <string name="back_to_login">BACK TO LOGIN</string>
+    <string name="unmute_notifications_for_this_post">Unmute notifications for this post</string>
+    <string name="mute_notifications_for_this_post">Mute notifications for this post</string>
+    <string name="channel_tip">Tap here to changes channels</string>
+    <string name="search_for_gifs">Search for GIFs</string>
+    <string name="are_you_sure_you_want_to_delete">Are you sure you want to delete?</string>
+    <string name="drag_to_reposition">Drag to reposition</string>
+    <string name="tell_your_friends">Tell your friends</string>
+    <string name="location_autocomplete">Where are you?</string>
+    <string name="imgly_color_filter_name_default">None</string>
+    <string name="imgly_color_filter_name_retro">Retro</string>
+    <string name="imgly_color_filter_name_blues">Nash</string>
+    <string name="imgly_color_filter_name_may">May</string>
+    <string name="imgly_color_filter_name_cloudy">Cloudy</string>
+    <string name="imgly_color_filter_name_compact">Compact</string>
+    <string name="imgly_color_filter_name_muted">Muted</string>
+
+    <string name="imgly_color_filter_name_classic">Hank</string>
+    <string name="imgly_color_filter_name_cool">Leh</string>
+    <string name="imgly_color_filter_name_cottoncandy">Fresh</string>
+    <string name="imgly_color_filter_name_elder">Polo</string>
+    <string name="imgly_color_filter_name_evening">Yellow</string>
+    <string name="imgly_color_filter_name_fixie">Chatter Box</string>
+    <string name="imgly_color_filter_name_k1">Flash</string>
+    <string name="imgly_color_picker_hint">Color Value</string>
+    <string name="imgly_crop_name_custom">Custom</string>
+    <string name="imgly_rotation_name_cw">Right</string>
+    <string name="imgly_rotation_name_ccw">Left</string>
+    <string name="imgly_rotation_name_flip_h">Mirror</string>
+    <string name="imgly_rotation_name_flip_v">Flip V</string>
+    <string name="imgly_sticker_name_sticker">Sticker</string>
+    <string name="imgly_sticker_name_glasses_normal">Glasses</string>
+    <string name="imgly_sticker_name_glasses_nerd">Nerd Glasses</string>
+    <string name="imgly_sticker_name_glasses_shutter_green">Shutter Glasses</string>
+    <string name="imgly_sticker_name_glasses_shutter_yellow">Shutter Glasses</string>
+    <string name="imgly_sticker_name_glasses_sun">Sun Glasses</string>
+    <string name="imgly_sticker_name_hat_cap">Cape</string>
+    <string name="imgly_sticker_name_hat_sherrif">Sherrif</string>
+    <string name="imgly_sticker_name_hat_party">Party Hat</string>
+    <string name="imgly_sticker_name_hat_zylinder">Zylinder</string>
+    <string name="imgly_sticker_name_mustache1">Mustage</string>
+    <string name="imgly_sticker_name_mustache2">Mustage</string>
+    <string name="imgly_sticker_name_mustache3">Mustage</string>
+    <string name="imgly_sticker_name_mustache_long">Mustage</string>
+    <string name="imgly_sticker_name_snowflake">Snowflake</string>
+    <string name="imgly_sticker_name_heart">Heart</string>
+    <string name="imgly_sticker_name_pipe">Pipe</string>
+    <string name="imgly_sticker_name_star">Star</string>
+    <string name="imgly_text_panel_add_button">Add</string>
+    <string name="imgly_text_panel_font_button">Font</string>
+    <string name="imgly_text_panel_update_button">Edit Text</string>
+    <string name="imgly_text_panel_color_button">Color</string>
+    <string name="imgly_text_panel_background_color_button">BG Color</string>
+
+    <string name="imgly_text_panel_add_text_dialog">Write Text</string>
+    <string name="imgly_text_panel_update_text_dialog">Change Text</string>
+    <string name="imgly_text_panel_change_font_dialog">Select Font</string>
+    <string name="imgly_text_panel_change_color_dialog">Select Color</string>
+
+    <string name="imgly_tool_name_magic">Magic</string>
+    <string name="imgly_tool_name_filter">Filter</string>
+    <string name="imgly_tool_name_orientation">Adjust</string>
+    <string name="imgly_tool_name_focus">Focus</string>
+    <string name="imgly_tool_name_crop">Crop</string>
+    <string name="imgly_tool_name_brightness">Brightness</string>
+    <string name="imgly_tool_name_color_tune">Tune</string>
+    <string name="imgly_tool_name_contrast">Contrast</string>
+    <string name="imgly_tool_name_saturation">Saturation</string>
+    <string name="imgly_tool_name_sticker">Sticker</string>
+    <string name="imgly_tool_name_text">Text</string>
+    <string name="create_new_list">Create New List</string>
+    <string name="download">Download</string>
+    <string name="downloads">Downloads</string>
+    <string name="select_manually">CHOOSE MANUALLY</string>
+    <string name="follow_more_to_continue">Follow %s more to continue</string>
+    <string name="comment">COMMENT</string>
+    <string name="you_will_now_start_seeing_all_posts_from">You will now start seeing all posts from</string>
+    <string name="in_the_feed">in the Feed</string>
+    <string name="got_it">GOT IT</string>
+    <string name="true_caller_signup_error_text">Unable to signup with TrueCaller please\nsignup with your number</string>
+    <string name="true_caller_signin_error_text">Unable to signin with TrueCaller please\nsignin with your number</string>
+    <string name="help">Help</string>
+    <string name="edit_audio">Edit Audio</string>
+    <string name="voiceover">VOICEOVER</string>
+
+
+    <string name="truecaller">Truecaller</string>
+    <string name="date">Date</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="edit_post">Edit Post</string>
+    <string name="see_all">See all</string>
+    <string name="signup">Signup</string>
+    <string name="change_language_dialog_string">Do you want to use Roposo in "language"?</string>
+    <string name="change_language_confirmation">You can change the language anytime through your account settings.</string>
+    <string name="clear_all">CLEAR ALL</string>
+    <string name="filters">Filters</string>
+    <string name="apply">APPLY</string>
+    <string name="already_reported">Already reported</string>
+    <string name="are_you_sure_you_want_to_report">Are you sure you want to report %s ?</string>
+    <string name="search_your_country">Search your country</string>
+    <string name="select_state">Select state</string>
+    <string name="please_wait_while_we_fetch_your_post">Please wait while we fetch your post</string>
+    <string name="could_not_edit_this_post">Could not edit this post</string>
+    <string name="failed_to_create_your_post">Failed to create your post</string>
+    <string name="cannot_be_downloaded">This item cannot be downloaded.</string>
+    <string name="app_name">Roposo</string>
+    <string name="xender_text">Xender</string>
+    <string name="shareit_text">SHAREit</string>
+    <string name="facebook_lite_text">Lite</string>
+
+    <!--Translate these strings-->
+    <string name="story_time_exceed_error_message">Story time limit reached</string>
+    <string name="story_item_min_duration_error_message">Please select a media of at least %d seconds</string>
+    <string name="create_story_from_external_media_error">Story time limit reached</string>
+    <string name="second">second</string>
+    <string name="seconds">seconds</string>
+    <string name="secs">secs</string>
+    <string name="mins">mins</string>
+    <string name="and">and</string>
+    <string name="media_saved_error_message">Error saving media to the gallery</string>
+
+    <plurals name="friends_found">
+        <item quantity="one">Friend Found</item>
+        <item quantity="other">Friends Found</item>
+    </plurals>
+
+
+    <!--<string name="contact_edit_profile">&#59936;</string>-->
+    <!--<string name="contact_edit_profile">&#59936;</string>-->
+    <!--<string name="contact_edit_profile">&#59936;</string>-->
+
+
+    <!--translate these strings -->
+
+    <string name="add_voiceover">Add voiceover</string>
+    <string name="uploaded_by">Uploaded by</string>
+    <string name="use_now">Use now</string>
+    <string name="audio_info_error_message">Music information not found</string>
+    <string name="select_effct">Select en effect and move finger</string>
+
+    <string name="do_you_want_to_save_changes">Do you want to save changes?</string>
+    <string name="delete_music_text">Are you sure you want to remove the selected music?</string>
+    <string name="do_you_want_to_discard_changes">Do you want to discard changes?</string>
+    <string name="error">ERROR</string>
+    <string name="invalid_video_type">Invalid video type! You can select only mp4 files</string>
+    <string name="no_music_found">No music found</string>
+    <string name="ad_tag">Ad</string>
+    <string name="write_your_offer_price">Write your offer price</string>
+    <string name="adjust">ADJUST</string>
+    <string name="tune">TUNE</string>
+    <string name="filter">FILTERS</string>
+    <string name="delete_voice_text">Are you sure you want to remove the recorded voice over?</string>
+    <string name="send_gifts">Send gifts and show some love</string>
+    <string name="top_gifters_on_roposo">Top gifters on roposo</string>
+    <string name="coins_will_be_deducted">coins will be deducted \n from your total coin balance</string>
+    <string name="sufficient_balance">You dont have enough \n coins. Keep watching to get \n more coins</string>
+    <string name="yout_cant_gift_your_own_story">You cannot send a gift on your own post</string>
+    <string name="swipe_left_for_filter">Swipe for \nphoto filters</string>
+    <string name="cannot_record_audio">Cannot record audio</string>
+    <string name="long_press_to_manage_intensity">Long press to \nmanage intensity</string>
+
+    <string name="story_currupted_message">This story can not be uploaded, Delete and Create again</string>
+
+    <string name="normal">Normal</string>
+    <string name="manifold">Manifold</string>
+    <string name="daydream">Daydream</string>
+    <string name="mini_party">Mini Party</string>
+    <string name="chalky">Chalky</string>
+    <string name="checkers">Checkers</string>
+    <string name="dhik_chik">Dhik-Chik</string>
+    <string name="lantern">Lantern</string>
+    <string name="kickoff">Kickoff</string>
+    <string name="sketch">Sketch</string>
+    <string name="three_way">3-Way</string>
+    <string name="ditto">Ditto</string>
+    <string name="clone">Clone</string>
+    <string name="monochrome">Monochrome</string>
+
+
+    <string name="rainbow">Rainbow</string>
+    <string name="plaid">Plaid</string>
+    <string name="window">Window</string>
+    <string name="tricolor">TriColor</string>
+    <string name="flicker">Flicker</string>
+    <string name="patchwork">Patchwork</string>
+    <string name="snow">Snow</string>
+    <string name="tripper">Tripper</string>
+    <string name="hexagram">Hexagram</string>
+    <string name="hypno">Hypno</string>
+    <string name="film_grain">Film Grain</string>
+    <string name="shooting_star">Shooting Star</string>
+    <string name="polaroid">Polaroid</string>
+    <string name="firefly">Firefly</string>
+    <string name="hoop_light">Hoop Light</string>
+    <string name="comic">Comic</string>
+    <string name="demon">Demon</string>
+    <string name="ropotrait">Ropotrait</string>
+    <string name="firebolt">Firebolt</string>
+    <string name="blaze">Blaze</string>
+    <string name="dazzling">Dazzling</string>
+    <string name="ripple">Ripple</string>
+    <string name="sponsored">Sponsored</string>
+    <string name="skip_ad">Skip Ad</string>
+    <string name="gif">Gif</string>
+
+</resources>

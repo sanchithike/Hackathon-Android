@@ -1,0 +1,97 @@
+	//int levels = int(log2(float(resolution))); //highest possible level -> number of buffers - 1
+	int levels = 9; //not calculating as the resolution is 512
+	float otcAfterOffset = (outTexCoords.x - outputOffset);
+	int pointToFind = int(otcAfterOffset * float(outputResolution) + 0.49999) + 1;	//so 0 contains 1st point's coordinates
+
+	//check numOfPoints > pointToFind
+	vec2 currPoint = startOfLevel(levels);
+	vec4 value = texture2D(baseSampler, currPoint);	//texturing the 1x1 point
+	int numOfPoints = numOfPointsOnMagnifying(value, levels);
+	bool wrong = false;
+
+	if (pointToFind <= numOfPoints) {
+		vec2 startOfCurrLevel = startOfLevel(levels - 1);
+		vec2 offset = vec2(0.0);
+		int pointsCountedInThis4x4 = 0;
+		vec2 temp;
+		int brokenAt;
+		int pointsIn1, pointsIn2, pointsIn3, pointsIn4;
+		vec2 point1, point2, point3, point4;
+
+		// for (int i = levels - 1; i >= 0; i--) {
+		for (int i = levels - 1; i >= 0; i--) {
+			startOfCurrLevel = startOfLevel(i);
+			point1 = startOfCurrLevel + offset;
+			pointsIn1 = numOfPointsOnMagnifying(texture2D(baseSampler, point1), i);
+
+			if (pointToFind <= pointsIn1) {
+				temp = point1 - startOfCurrLevel;
+				offset = temp*2.0;
+				currPoint = point1;
+				continue;
+			}
+			else {
+				pointToFind -= pointsIn1;
+				pointsCountedInThis4x4 += pointsIn1;
+			}
+
+			point2 = point1 + vec2(texelSize.x, 0.0);
+			pointsIn2 = numOfPointsOnMagnifying(texture2D(baseSampler, point2), i);
+            point3 = point1 + vec2(texelSize.x, texelSize.y);
+            pointsIn3 = numOfPointsOnMagnifying(texture2D(baseSampler, point3), i);
+            point4 = point1 + vec2(0.0, texelSize.y);
+			pointsIn4 = numOfPointsOnMagnifying(texture2D(baseSampler, point4), i);
+
+
+			if (pointToFind <= pointsIn2) {
+				temp = point2 - startOfCurrLevel;
+				offset = temp*2.0;
+				currPoint = point2;
+				continue;
+			}
+			else {
+				pointToFind -= pointsIn2;
+				pointsCountedInThis4x4 += pointsIn1;
+			}
+
+
+			if (pointToFind <= pointsIn3) {
+				temp = point3 - startOfCurrLevel;
+				offset = temp*2.0;
+				currPoint = point3;
+				continue;
+			}
+			else {
+				pointToFind -= pointsIn3;
+				pointsCountedInThis4x4 += pointsIn1;
+			}
+
+			if (pointToFind <= pointsIn4) {
+				temp = point4 - startOfCurrLevel;
+				offset = temp*2.0;
+				currPoint = point4;
+				continue;
+			}
+			else {
+				//there is something wrong
+				wrong = true;
+				break;
+			}
+
+		}
+
+		if (wrong) {
+			// fragColor = vec4(float(pointsIn1)/256.0, float(pointsIn2)/256.0, float(pointsIn3)/256.0, 1.0);
+			fragColor = vec4(startOfCurrLevel, 0.5, 1.0);
+			// fragColor = vec4(0.25,0.25,0.25, 1.0);
+		}
+		else {
+			// fragColor = vec4(offset, 1.0, 1.0);
+		        fragColor = vec4(currPoint, 1.0, 1.0);//this is the point in the user histo pyramid. To find point in original image, simply multiply x by 2.0
+		}
+
+	}
+	else {
+		fragColor = vec4(float(pointToFind)/256.0, numOfPoints, 0.0, 1.0);
+		//fragColor = vec4(0.25,0.25,0.25, 1.0);
+	}

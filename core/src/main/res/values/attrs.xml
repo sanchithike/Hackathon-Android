@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <attr name="fromDegrees" format="float|reference" />
+    <attr name="toDegrees" format="float|reference" />
+    <attr name="childSize" format="dimension|reference" />
+
+    <declare-styleable name="ArcLayout">
+        <attr name="fromDegrees" />
+        <attr name="toDegrees" />
+        <attr name="childSize" />
+    </declare-styleable>
+
+    <declare-styleable name="ArcMenu">
+        <attr name="fromDegrees" />
+        <attr name="toDegrees" />
+        <attr name="childSize" />
+    </declare-styleable>
+
+    <declare-styleable name="RayLayout">
+        <attr name="leftHolderWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProductUnitView">
+        <attr name="type" format="integer" localization="suggested" />
+        <attr name="imageHeightDP" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="UniversalListView">
+        <attr name="toAddHeader" format="integer" localization="suggested" />
+        <attr name="toAddLoader" format="boolean" />
+        <attr name="AddHeader" format="boolean" />
+        <attr name="toAddHeaderType" format="integer" />
+        <attr name="addCustomDivider" format="integer" />
+        <attr name="addDefaultBkgClr" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="UniversalImageFrame">
+        <attr name="customScaleType" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="UniversalPager">
+        <attr name="dividerHeight" format="integer" />
+        <attr name="addSwipeRefresh" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LikeUnitView">
+        <attr name="like_size" format="integer" />
+        <attr name="like_color" format="color" />
+        <attr name="like_type" format="integer" /> <!-- 0. stands for standard icon , 1. stands for like text-->
+    </declare-styleable>
+
+    <declare-styleable name="NotificationCountUnitView">
+        <attr name="size" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SocialActivityBar">
+        <attr name="showLastComment" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FollowUnitView">
+        <attr name="to_show_background" format="boolean" />
+        <attr name="type_background" format="integer" />
+        <attr name="follow_text_color" format="color" />
+        <attr name="unfollow_text_color" format="color" />
+        <attr name="follow_background_color" format="color" />
+        <attr name="unfollow_background_color" format="color" />
+        <attr name="follow_stroke_color" format="color" />
+        <attr name="unfollow_stroke_color" format="color" />
+        <attr name="leftMarginText" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RoposoIconUnitView">
+        <attr name="size_icon" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="UserImageTextUnitView">
+        <attr name="size_icon_user_image" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CommentUnitView">
+        <attr name="comment_size" format="integer" />
+        <attr name="comment_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedTickView">
+        <attr name="strokeColor" format="color">
+            <enum name="strokeColor" value="1" />
+        </attr>
+        <attr name="strokeWidth" format="float">
+            <enum name="strokeWidth" value="10" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ShareUnitView">
+        <attr name="share_size" format="integer" />
+        <attr name="share_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="FakeActionBarUnitView">
+        <attr name="actionbartype" format="integer" />
+        <attr name="actionbartitle" format="string" />
+        <attr name="actionbarcustombutton" format="string" />
+        <attr name="social_bar" format="boolean" />
+        <attr name="custom_button_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LockedUnitView">
+        <attr name="locksize" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="FbGPlusLoginButton">
+        <attr name="loginType" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="WhatsAppUnitView">
+        <attr name="toshowtext" format="boolean" />
+        <attr name="whatsappiconsize" format="integer" />
+        <attr name="whatsapptextsize" format="integer" />
+        <attr name="whatsapptextcolor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="pstsTabSwitch" format="boolean" />
+    </declare-styleable>
+
+
+    <!--attributes for image filter app-->
+    <declare-styleable name="ColorPickerPreference">
+        <attr name="alphaSlider" format="boolean" />
+        <attr name="lightnessSlider" format="boolean" />
+        <attr name="density" format="integer" />
+        <attr name="initialColor" format="integer" />
+        <attr name="wheelType" format="enum">
+            <enum name="FLOWER" value="0" />
+            <enum name="CIRCLE" value="1" />
+        </attr>
+        <attr name="lightnessSliderView" format="reference" />
+        <attr name="alphaSliderView" format="reference" />
+        <attr name="pickerTitle" format="reference|string" />
+        <attr name="pickerButtonOk" format="reference|string" />
+        <attr name="pickerButtonCancel" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="SubsamplingScaleImageView">
+        <attr name="src" format="reference" />
+        <attr name="assetName" format="string" />
+        <attr name="panEnabled" format="boolean" />
+        <attr name="zoomEnabled" format="boolean" />
+        <attr name="quickScaleEnabled" format="boolean" />
+        <attr name="tileBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomEllipsizeTextView">
+        <attr name="postfix" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="IconButton">
+        <attr name="buttonIcon" format="reference" />
+        <attr name="buttonText" format="reference|string" />
+        <attr name="iconColor" format="reference|color" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textAllCap" format="boolean" />
+        <attr name="iconSize" format="dimension" />
+        <attr name="textMargin" format="dimension" />
+        <attr name="enableShadow" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RateCardStyle" parent="@android:style/Widget.RatingBar">
+        <attr name="showTextIndicator" format="boolean" />
+        <attr name="isIndicator" format="boolean" />
+        <attr name="numStars" format="integer" />
+        <attr name="stepSize" format="integer" />
+        <attr name="rating" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="OurActionBar">
+        <attr name="headerTitle" format="reference|string" />
+        <attr name="primaryIcon" format="reference" />
+        <attr name="secondaryText" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageCoverFlowView">
+        <attr name="visibleImage" format="integer" />
+        <attr name="reflectionHeight" format="fraction" />
+        <attr name="reflectionGap" format="dimension" />
+        <attr name="topImageClickEnable" format="boolean" />
+        <attr name="coverflowGravity" format="enum">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="center_vertical" value="2" />
+        </attr>
+        <attr name="coverflowLayoutMode" format="enum">
+            <enum name="match_parent" value="0" />
+            <enum name="wrap_content" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PlanInfoUnitView">
+        <attr name="planInfoTextColor" format="color" />
+        <attr name="planInfoTextStyle" format="enum" />
+        <attr name="planInfoButton" format="boolean" />
+        <attr name="planInfoIcon" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SlidingUpPanelLayout">
+        <attr name="umanoPanelHeight" format="dimension" />
+        <attr name="umanoShadowHeight" format="dimension" />
+        <attr name="umanoParallaxOffset" format="dimension" />
+        <attr name="umanoFadeColor" format="color" />
+        <attr name="umanoFlingVelocity" format="integer" />
+        <attr name="umanoDragView" format="reference" />
+        <attr name="umanoScrollableView" format="reference" />
+        <attr name="umanoOverlay" format="boolean" />
+        <attr name="umanoClipPanel" format="boolean" />
+        <attr name="umanoAnchorPoint" format="float" />
+        <attr name="umanoInitialState" format="enum">
+            <enum name="expanded" value="0" />
+            <enum name="collapsed" value="1" />
+            <enum name="anchored" value="2" />
+            <enum name="hidden" value="3" />
+        </attr>
+        <attr name="umanoScrollInterpolator" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularSeekBar">
+        <attr name="progress" format="integer" />
+        <attr name="max" format="integer" />
+        <attr name="move_outside_circle" format="boolean" />
+        <attr name="maintain_equal_circle" format="boolean" />
+        <attr name="use_custom_radii" format="boolean" />
+        <attr name="lock_enabled" format="boolean" />
+        <attr name="circle_x_radius" format="float" />
+        <attr name="circle_y_radius" format="float" />
+        <attr name="circle_stroke_width" format="dimension" />
+        <attr name="pointer_radius" format="dimension" />
+        <attr name="pointer_halo_width" format="dimension" />
+        <attr name="pointer_halo_border_width" format="dimension" />
+        <attr name="circle_color" format="color" />
+        <attr name="circle_progress_color" format="color" />
+        <attr name="pointer_color" format="color" />
+        <attr name="pointer_halo_color" format="color" />
+        <attr name="pointer_halo_color_ontouch" format="color" />
+        <attr name="pointer_alpha_ontouch" format="integer" />
+        <attr name="start_angle" format="float" />
+        <attr name="end_angle" format="float" />
+        <attr name="circle_fill" format="color" />
+    </declare-styleable>
+
+    <attr name="dotRadius" format="dimension" />
+
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="android:gravity" />
+        <attr name="dotRadius" />
+        <attr name="dotPadding" format="dimension" />
+        <attr name="selectedDotColor" format="color" />
+        <attr name="unselectedDotColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorDotView">
+        <attr name="dotRadius" />
+        <attr name="dotColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CountDownView">
+        <attr name="myTextSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="UniversalRecyclerView">
+        <attr name="showLoader" format="boolean" />
+        <attr name="initialAutoCall" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TouchParams">
+        <attr name="zoomable" format="boolean" />
+        <attr name="translatable" format="boolean" />
+        <attr name="drawBorder" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedCornerImageView">
+        <attr name="rciv_cornerRadius" format="dimension" />
+        <attr name="rciv_isCircular" format="boolean" />
+        <attr name="rciv_strokeWidth" format="dimension" />
+        <attr name="rciv_strokeColor" format="color" />
+        <attr name="rciv_foregroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="EditTextCompat">
+        <attr name="drawableLeftCompat" format="reference"/>
+        <attr name="drawableRightCompat" format="reference"/>
+        <attr name="drawableTopCompat" format="reference"/>
+        <attr name="drawableBottomCompat" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="VerticalSeekBar">
+        <attr name="vs_reverse" format="boolean"/>
+    </declare-styleable>
+
+</resources>
