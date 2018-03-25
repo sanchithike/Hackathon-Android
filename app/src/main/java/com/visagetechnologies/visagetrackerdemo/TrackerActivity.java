@@ -19,6 +19,7 @@ import android.graphics.Color;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.media.FaceDetector;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -153,6 +154,19 @@ public class TrackerActivity extends Activity
 //				renderFace();
 		}
 	}*/
+
+	private void createGLES20Surface(){
+		final GLSurfaceView surfaceView = new GLSurfaceView(this);
+		surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
+		RelativeLayout layout = new RelativeLayout(this);
+		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		layout.setLayoutParams(params);
+		setContentView(layout);
+		// Add mSurface to your root view
+		addContentView(surfaceView, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
+		renderer = new FaceRenderer(this,this,sourceFaceIndex,destinationFaceIndex,destinationFaces[destinationFaceIndex].getMedianColor());
+		surfaceView.setRenderer(renderer);
+	}
 
 	@Override
 	public void onDestroy() {

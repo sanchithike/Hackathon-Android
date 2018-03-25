@@ -2,10 +2,12 @@ package com.visagetechnologies.visagetrackerdemo;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -16,6 +18,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -29,7 +32,8 @@ public class ImagesActivity extends Activity
 {
 	private static int RESULT_LOAD_IMAGE = 1;
 	final int MY_PERMISSIONS_REQUEST_STORAGE = 2;
-
+	final int MY_PERMISSIONS_REQUEST_CAMERA = 3;
+	private static final int CAMERA_REQUEST = 1888;
 	final int sourceIndex = 0;
 	final int destinationIndex = 1;
 	private String sourceImagePath;
@@ -56,6 +60,14 @@ public class ImagesActivity extends Activity
 			}
 		});
 
+		Button buttonSourceCamImage = (Button) findViewById(R.id.btnSourceCamImage);
+		buttonSourceCamImage.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				handleCameraPermissions();
+			}
+		});
+
 		Button buttonDestinationImageClick = (Button)findViewById(R.id.btnDestinationImage);
 		buttonDestinationImageClick.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -73,6 +85,20 @@ public class ImagesActivity extends Activity
 
     }
 
+	public Uri getImageUri(Context inContext, Bitmap inImage) {
+		ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+		inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+		String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+		return Uri.parse(path);
+	}
+
+	public String getRealPathFromURI(Uri uri) {
+		Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+		cursor.moveToFirst();
+		int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+		return cursor.getString(idx);
+	}
+
     public void openTracker(){
 		Intent intent = new Intent(this, TrackerActivity.class);
 		Bundle bundle = new Bundle();
@@ -80,6 +106,11 @@ public class ImagesActivity extends Activity
 		bundle.putString("destinationImagePath",destinationImagePath);
 		intent.putExtras(bundle);
 		startActivity(intent);
+	}
+
+	private void openCamera(){
+		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+		startActivityForResult(cameraIntent, CAMERA_REQUEST);
 	}
 
 
@@ -104,6 +135,19 @@ public class ImagesActivity extends Activity
 			openGallery(imageType);
 	}
 
+	public void handleCameraPermissions(){
+		if (ContextCompat.checkSelfPermission(this,
+				Manifest.permission.CAMERA)
+				!= PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this,
+					new String[]{Manifest.permission.CAMERA},
+					MY_PERMISSIONS_REQUEST_CAMERA);
+		}
+		else{
+			openCamera();
+		}
+	}
+
 	/** Method invoked when the user responds to permission request.
 	 */
 	@Override
@@ -112,12 +156,20 @@ public class ImagesActivity extends Activity
 		switch (requestCode) {
 			case MY_PERMISSIONS_REQUEST_STORAGE: {
 				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-					if(currentIndex > 0)
+					if(currentIndex > -1)
 						openGallery(currentIndex);
 					else
 						Log.d("ImagesActivity","Invalid current index");
 				}
 				return;
+			}
+			case MY_PERMISSIONS_REQUEST_CAMERA:{
+				if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+					openCamera();
+				}
+				else{
+					Log.d("ImagesActivity", "Permission Denied");
+				}
 			}
 		}
 	}
@@ -149,6 +201,11 @@ public class ImagesActivity extends Activity
 					destinationImagePath = picturePath;
 				}
 			}
+		}
+		else if(requestCode == CAMERA_REQUEST && resultCode == RESULT_OK && null != data){
+			Bitmap photo = (Bitmap) data.getExtras().get("data");
+			Uri tempUri = getImageUri(getApplicationContext(), photo);
+			sourceImagePath = getRealPathFromURI(tempUri);
 		}
     }
 
