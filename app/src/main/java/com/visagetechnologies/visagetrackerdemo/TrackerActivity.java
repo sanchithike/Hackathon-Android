@@ -1,74 +1,34 @@
 package com.visagetechnologies.visagetrackerdemo;
 
-import java.lang.ref.WeakReference;
-import java.nio.FloatBuffer;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 
-import android.Manifest;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
-import android.media.FaceDetector;
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.util.TypedValue;
 import android.view.Display;
-import android.view.Gravity;
-import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.roposo.core.util.ContextHelper;
-import com.roposo.core.util.FileUtilities;
 import com.roposo.creation.av.SessionConfig;
 import com.roposo.creation.fragments.RenderFragment;
 import com.roposo.creation.graphics.GraphicsConsts;
-import com.roposo.creation.graphics.ImageSource;
 import com.roposo.creation.graphics.RenderManager;
 import com.roposo.creation.graphics.SceneManager;
 import com.roposo.creation.graphics.scenes.Scene3D;
-
-import org.rajawali3d.view.ISurface;
-import org.rajawali3d.view.SurfaceView;
-
-import static android.content.ContentValues.TAG;
-
 
 /** Activity called to initiate and control tracking for either tracking from camera or image.
  */
 public class TrackerActivity extends AppCompatActivity
 {
-	final int TRACK_GREYSCALE = 2;
-	final int TRACK_RGB = 0;
-
-	final int VISAGE_CAMERA_UP = 0;
-	final int VISAGE_CAMERA_DOWN = 1;
-	final int VISAGE_CAMERA_LEFT = 2;
-	final int VISAGE_CAMERA_RIGHT = 3;
-
-	private Handler mHandler = new Handler();
-	private TextView tv;
 	private static boolean licenseMessageShown = false;
 
 	public static float AverageFPS = 0;
@@ -76,13 +36,8 @@ public class TrackerActivity extends AppCompatActivity
 	public static TrackerActivity instance;
 
 
-	public static boolean wait = false;
 	JavaCamTrackerView cpreview;
-	ImageTrackerView ipreview;
-	String imagePath;
 	int cameraId = -1;
-	int orientation;
-	int type;
 	String sourceImagePath;
 	String destinationImagePath;
 	int sourceFaceIndex = 0;
@@ -90,7 +45,6 @@ public class TrackerActivity extends AppCompatActivity
 	FaceData[] sourceFaces;
 	FaceData[] destinationFaces;
 	FaceRenderer renderer;
-	Bitmap faceTexture;
 
 	public static Bitmap sourceBitmap;
 	public static Bitmap destinationBitmap;
@@ -161,6 +115,11 @@ public class TrackerActivity extends AppCompatActivity
 					return idx1.getFaceRect().left - idx2.getFaceRect().left;
 				}
 			});
+
+			if(destinationFaceIndex > getDestinationFaces().length -1){
+				destinationFaceIndex = getDestinationFaces().length -1;
+			}
+
 			Scene3D.verticesBuffer = Utils.getFloatBuffer(getDestinationFaces()[destinationFaceIndex].getFaceModelVertices());
 			Scene3D.texCoordBuffer = Utils.getFloatBuffer(getSourceFaces()[sourceFaceIndex].getFaceModelTextureCoords());
 			Scene3D.indicesBuffer = Utils.getShortBuffer(getDestinationFaces()[destinationFaceIndex].getCorrectedTriangles());
@@ -227,34 +186,9 @@ public class TrackerActivity extends AppCompatActivity
 		return result;
 	}
 
-	/*public void setFaces(FaceData[] faces){
-		if(faces != null){
-			this.faces = faces;
-//			if(faces.length > 0)
-//				renderFace();
-		}
-	}*/
-
-	private void createGLES20Surface(){
-		final GLSurfaceView surfaceView = new GLSurfaceView(this);
-		surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
-		RelativeLayout layout = new RelativeLayout(this);
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		layout.setLayoutParams(params);
-		setContentView(layout);
-		// Add mSurface to your root view
-		addContentView(surfaceView, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
-		renderer = new FaceRenderer(this,this,sourceFaceIndex,destinationFaceIndex,destinationFaces[destinationFaceIndex].getMedianColor());
-		surfaceView.setRenderer(renderer);
-	}
-
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		if (cpreview != null && type == 0)
-			cpreview.closeCamera();
-		TrackerStop();
-		mHandler.removeCallbacksAndMessages(null);
 	}
 
 	private void setBitmap(FaceData[] faces, Bitmap bitmap){
@@ -305,32 +239,7 @@ public class TrackerActivity extends AppCompatActivity
 
 		setParameters(cpreview.previewWidth, cpreview.previewHeight, finalOrientation, 1);
 	}
-	/**
-	 * Thread for tracking from camera
-	 */
-	
-	private final class CameraThread implements Runnable {
-		private int Cwidth;
-		private int Cheight;
-		private int Corientation;
-		private int Cflip;
 
-		protected CameraThread(int width, int height, int flip, int orientation) {
-
-			Cwidth = width;
-			Cheight = height;
-			Corientation = orientation;
-			Cflip = flip;
-		}
-
-		@Override
-		public void run() {
-			setParameters(Cwidth, Cheight, Corientation, Cflip);
-			TrackFromCam();
-			return;
-		}
-	}
-	
 	/**
 	 * Thread for tracking from image
 	 */
@@ -359,218 +268,12 @@ public class TrackerActivity extends AppCompatActivity
 		return destinationFaces;
 	}
 
-	public void renderFace(){
-		setContentView(R.layout.dummy);
-		final SurfaceView surface = new SurfaceView(this);
-		surface.setFrameRate(60.0);
-		surface.setKeepScreenOn(true);
-		surface.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
-		// Add mSurface to your root view
-		addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
-		renderer = new FaceRenderer(this,0,0,new int[3]);
-		surface.setRenderer(renderer);
-	}
-
-	/*private static final class GetFaces implements Runnable{
-		private final WeakReference<Handler> mHandlerRef;
-
-		protected GetFaces(Handler handler){
-			mHandlerRef = new WeakReference<Handler>(handler);
-		}
-		@Override
-		public void run() {
-			if(TrackerActivity.instance.faces == null || TrackerActivity.instance.faces.length == 0){
-				TrackerActivity.instance.setFaces(TrackerActivity.instance.getFaces());
-				if(TrackerActivity.instance.faces == null || TrackerActivity.instance.faces.length == 0){
-					final Handler handler = mHandlerRef.get();
-					if (handler != null)
-						handler.postDelayed(this, 450);
-				}
-			}
-		}
-	}*/
-
-	private static final class DoneRunnable implements Runnable {
-		private final WeakReference<TextView> mTextViewRef;
-		private final WeakReference<Handler> mHandlerRef;
-
-		protected DoneRunnable(TextView textView, Handler handler) {
-			mTextViewRef = new WeakReference<TextView>(textView);
-			mHandlerRef = new WeakReference<Handler>(handler);
-		}
-		@Override
-		public void run() {
-			final TextView tv = mTextViewRef.get();
-			if (tv!=null)
-			{
-				float fps = GetFps();
-				float displayFps = GetDisplayFps();
-				String state = GetStatus();
-
-				int trackTime = GetTrackTime();
-
-				if (!state.equals("OFF")) {
-					if (TrackerActivity.AverageFPS == 0) {
-						if (fps > 0 && fps < 100) {
-							TrackerActivity.AverageFPS = fps;
-							TrackerActivity.FPSCounter++;
-						}
-					}
-					else {
-						if (fps > 0 && fps < 80) {
-							TrackerActivity.FPSCounter++;
-							TrackerActivity.AverageFPS = TrackerActivity.AverageFPS + ((fps - TrackerActivity.AverageFPS) / TrackerActivity.FPSCounter);
-						}
-
-					}
-
-					tv.setText("FPS: " + String.format("%.2f", fps) + " (track " + String.format("%d", trackTime) + " ms)" + "\nDISPLAY FPS: " + String.format("%.2f", displayFps) + "\nStatus: " + state + "\nAvgFPS: " + String.format("%.2f", TrackerActivity.AverageFPS));
-				} else if (state.equals("OFF") && FPSCounter > 100 && licenseMessageShown == false) {
-					new AlertDialog.Builder(TrackerActivity.instance)
-							.setTitle("Warning")
-						.setMessage("You are using an unlicensed copy of visage|SDK\nTracking time is limited to one minute.\nPlease contact Visage Technologies to obtain a license key.\n30-day trial licenses are available.\nTracking will now stop.")
-						.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-					        public void onClick(DialogInterface dialog, int which) { 
-										}
-									})
-					    .setIcon(android.R.drawable.ic_dialog_alert)
-					    .show();
-					tv.setText("");
-					licenseMessageShown = true;
-				}
-			}
-			final Handler handler = mHandlerRef.get();
-			if (handler != null)
-				handler.postDelayed(this, 200);
-		}
-	}
-
-	/**
-	 * Starts tracking from camera and initializes surface for displaying tracking results.
-	 */
-	public void StartCam(){		
-		TrackerInit(getFilesDir().getAbsolutePath() + "/Facial Features Tracker - High.cfg");
-		cameraId = getCameraId();
-		cpreview = new JavaCamTrackerView(this, this, cameraId);
-    	RelativeLayout layout = new RelativeLayout(this);
-    	layout.addView(cpreview);
-    	
-    	TrackerGLSurfaceView tGLView = new TrackerGLSurfaceView(this,imagePath);
-    	cpreview.setGLView(tGLView);
-    	layout.addView(tGLView);
-    	
-    	final TextView tv = new TextView(this);
-    	tv.setTextColor(Color.GREEN);
-    	tv.setBackgroundColor(Color.BLACK);
-    	layout.addView(tv);
-    	mHandler.postDelayed(new DoneRunnable(tv, mHandler), 200);
-    	
-    	RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-    	
-    	Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
-    	int screenOrientation = display.getRotation();
-    	
-    	layout.setLayoutParams(params);
-    	setContentView(layout);    	
-    	CameraInfo cameraInfo = new CameraInfo();
-    	Camera.getCameraInfo(cameraId, cameraInfo);
-		int orientation = cameraInfo.orientation;
-    	int flip = 0;		
-		if (cameraInfo.facing == CameraInfo.CAMERA_FACING_FRONT){
-			flip = 1; // Mirror image from frontal camera
-		}
-		Thread CamThread;
-		if (cameraInfo.facing == CameraInfo.CAMERA_FACING_FRONT)
-			CamThread = new Thread(new CameraThread(cpreview.previewWidth, cpreview.previewHeight, flip, (screenOrientation*90 + orientation)%360));
-    	else
-    		CamThread = new Thread(new CameraThread(cpreview.previewWidth, cpreview.previewHeight, flip, (orientation - screenOrientation*90 + 360)%360));
-		
-    	CamThread.start();
-
-	}
-
-	int getCameraId(){
-		int cameraId = -1;
-		int numberOfCameras = Camera.getNumberOfCameras();
-		for (int i = 0; i < numberOfCameras; i++) {
-			CameraInfo info = new CameraInfo();
-			Camera.getCameraInfo(i, info);
-			cameraId = i;
-	    	if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
-	    		break;
-		}
-	}
-		return cameraId;
-	}
-	  
-	
-    /** Called to initialize and start tracking for image. Also initializes surface for displaying tracking results.
-     * 
-     * @param path absolute path to image file used for tracking. Sent from ImagesActivity using Bundle class provided by Android. 
-     */
-    /**
-    public void StartImage(String path)
-    {
-    	TrackerInit(getFilesDir().getAbsolutePath() + "/Facial Features Tracker - High.cfg");
-
-
-    	Bitmap bitmap = Utils.LoadBitmapFromFile(path);
-		bitmap = Utils.CreateOptimalBitmapSize(bitmap,this);
-//		Log.d("TrackerActivity","width and height is "+bitmap.getWidth()+" , "+bitmap.getHeight());
-//		WriteFrameImage(Utils.ConvertToByte(bitmap), bitmap.getWidth(), bitmap.getHeight());
-		faces = Track(bitmap.getWidth(),bitmap.getHeight());
-		final SurfaceView surface = new SurfaceView(this);
-		surface.setFrameRate(60.0);
-		surface.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
-		RelativeLayout layout = new RelativeLayout(this);
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		layout.setLayoutParams(params);
-		setContentView(layout);
-		// Add mSurface to your root view
-		addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
-		renderer = new FaceRenderer(this);
-		surface.setRenderer(renderer);
-//		for(int i = 0; i < faces.length; i++){
-//			Utils.saveFaceDataToFile(this,faces[i],""+i+".obj");
-//		}
-
-
-//		ipreview = new ImageTrackerView(this, path, this);
-//		RelativeLayout layout = new RelativeLayout(this);
-//
-//		layout.addView(ipreview);
-//
-//		TrackerGLSurfaceView tGLView = new TrackerGLSurfaceView(this,imagePath);
-//		ipreview.setGLView(tGLView);
-//		layout.addView(tGLView);
-
-//		tv = new TextView(this);
-//		tv.setTextColor(Color.GREEN);
-//		tv.setBackgroundColor(Color.BLACK);
-//		layout.addView(tv);
-
-//		mHandler.postDelayed(new DoneRunnable(tv, mHandler), 200);
-//		mHandler.postDelayed(new GetFaces(mHandler),450);
-//    	RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-//
-//		layout.setLayoutParams(params);
-//		setContentView(layout);
-
-//		ipreview.SetOptimalBitmapSize();
-//		this.faceTexture = ipreview.getBitmap();
-//		Log.d("TrackerActivity","width and height is "+ipreview.getBitmapWidth()+" , "+ipreview.getBitmapHeight());
-//		Thread ImageThread = new Thread(new ImageThread(ipreview.getBitmapWidth(), ipreview.getBitmapHeight()));
-////		Thread ImageThread = new Thread(new ImageThread(bitmap.getWidth(), bitmap.getHeight()));
-//		ImageThread.start();
-	}**/
-
     public void ShowDialog()
     {
 		Intent intent = new Intent(this, WarningActivity.class);
 		startActivity(intent);
 		this.finish();
 	}
-    
     
     /* 
      * Method that is called if the product is unlicensed
@@ -595,33 +298,6 @@ public class TrackerActivity extends AppCompatActivity
 //	     .setIcon(android.R.drawable.ic_dialog_alert)
 //	     .show();
     }
-
-    /*
-	@Override
-	public void onRequestPermissionsResult(int requestCode,
-										   String permissions[], int[] grantResults) {
-		switch (requestCode) {
-			case Utils.STORAGE_PERMISSIONS: {
-				// If request is cancelled, the result arrays are empty.
-				if (grantResults.length > 0
-						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-					for(int i = 0; i < faces.length; i++){
-						Utils.saveFaceDataToFile(this,faces[i],""+i+".obj");
-					}
-
-				} else {
-					Log.d("TrackerActivity","permission denied");
-					// permission denied, boo! Disable the
-					// functionality that depends on this permission.
-				}
-				return;
-			}
-
-			// other 'case' lines to check for other
-			// permissions this app might request
-		}
-	}*/
-    
 
 	/** Interface to native method called for initializing tracker.
 	 * 
