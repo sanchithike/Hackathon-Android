@@ -999,6 +999,91 @@ int VisageRendering::getVerticesLength(FaceData *trackingData){
         return nVert;
 }
 
+void VisageRendering::getLeftEyeModel(FaceData *trackingData, float *eyeModel){
+    static int leftEye[] = {
+        3,6,
+        3,14,
+        3,12,
+        3,10,
+        3,8
+    }
+
+    vector<float> pointCoords;
+    int n = 0;
+    FDP *fdp = trackingData->featurePoints2D;
+
+    for (int i = 0; i < 5; i++)
+    {
+        const FeaturePoint &fp = fdp->getFP(points[2*i],points[2*i+1]);
+        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
+        {
+            pointCoords.push_back(fp.pos[0]);
+            pointCoords.push_back(fp.pos[1]);
+            n++;
+        }
+    }
+
+    if(pointCoords.size() == 0 || n <= 2)
+        return ;
+
+    int factor = 10;
+    vector<float> pointsToDraw;
+    VisageRendering::CalcSpline(pointCoords, factor, pointsToDraw);
+    int nVert = (int)pointsToDraw.size() / 2;
+    int cnt = 0;
+    for (int i = 0; i < nVert; ++i)
+    {
+        eyeModel[3*i] = pointsToDraw.at(cnt++);
+        eyeModel[3*i+1] = pointsToDraw.at(cnt++);
+        eyeModel[3*i+2] = 0.0f;
+    }
+}
+
+void VisageRendering::getRightEyeModel(FaceData *trackingData, float *eyeModel){
+
+    static int rightEye[] = {
+        3,5,
+        3,13,
+        3,11,
+        3,9,
+        3,7
+    }
+
+    vector<float> pointCoords;
+    int n = 0;
+    FDP *fdp = trackingData->featurePoints2D;
+
+    for (int i = 0; i < 5; i++)
+    {
+        const FeaturePoint &fp = fdp->getFP(points[2*i],points[2*i+1]);
+        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
+        {
+            pointCoords.push_back(fp.pos[0]);
+            pointCoords.push_back(fp.pos[1]);
+            n++;
+        }
+    }
+
+    if(pointCoords.size() == 0 || n <= 2)
+        return ;
+
+    int factor = 10;
+    vector<float> pointsToDraw;
+    VisageRendering::CalcSpline(pointCoords, factor, pointsToDraw);
+    int nVert = (int)pointsToDraw.size() / 2;
+    int cnt = 0;
+    for (int i = 0; i < nVert; ++i)
+    {
+        eyeModel[3*i] = pointsToDraw.at(cnt++);
+        eyeModel[3*i+1] = pointsToDraw.at(cnt++);
+        eyeModel[3*i+2] = 0.0f;
+    }
+}
+
+void VisageRendering::getEyeTexture(FaceData *trackingData, float *eyeTexture){
+
+}
+
 
 void VisageRendering::getVertexArray(FaceData *trackingData, float *vertexCoordinates){
     static int points[] = {
