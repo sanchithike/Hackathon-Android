@@ -209,7 +209,7 @@ public class RenderFragment extends Fragment implements CameraEventListener, Ren
                 if (endTime < 0) {
                     endTime = AndroidUtilities.getMediaDuration(mVideoPath);
                     if (mSourceMedia == GraphicsConsts.MEDIA_TYPE_IMAGE) {
-                        endTime = 5000; //UIPref.getInstance().minMediaItemDuration;
+                        endTime = 10000; //UIPref.getInstance().minMediaItemDuration;
                     }
                 }
                 mRenderManager.setClipSize(startTime, endTime);

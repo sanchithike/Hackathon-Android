@@ -1,15 +1,21 @@
 package com.roposo.creation.graphics.scenes;
 
 import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.opengl.GLES20;
 import android.opengl.GLU;
 
 import com.roposo.creation.graphics.Camera;
 import com.roposo.creation.graphics.ImageSource;
+import com.roposo.creation.graphics.filters.BaseFilter;
+import com.roposo.creation.graphics.filters.FaceFilter;
 import com.roposo.creation.graphics.gles.Caches;
 import com.roposo.creation.graphics.gles.Drawable;
 import com.roposo.creation.graphics.gles.Drawable2d;
+import com.roposo.creation.graphics.gles.FilterManager;
 import com.roposo.creation.graphics.gles.OpenGLRenderer;
+import com.roposo.creation.graphics.gles.RenderTarget;
 
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
@@ -21,6 +27,7 @@ import java.util.Vector;
  */
 
 public class Scene3D extends DemoScene {
+    public static RectF rect;
     private Drawable2d face;
     private Drawable2d imagePlane;
     private Drawable2d root;
@@ -44,20 +51,51 @@ public class Scene3D extends DemoScene {
         Drawable2d drawable2d = new Drawable2d();
         drawable2d.setDefaultGeometryScale(1,1);
         drawable2d.setScaleType(Drawable2d.SCALE_TYPE_FIT_WIDTH);
+//        drawable2d.setImageSource(new ImageSource("/sdcard/Download/testing-gif.gif"));
         drawable2d.setImageSource(new ImageSource(destinationBitmap));
         root.addChild(drawable2d);
 
 
-        Drawable2d drawableFace = new Drawable2d();
-        drawableFace.setRotate(rotationAngles[0],rotationAngles[1],rotationAngles[2]);
+/*        {
+            Drawable2d drawableFace = new Drawable2d();
+            drawableFace.setRotate(rotationAngles[0], rotationAngles[1], rotationAngles[2]);
 //        drawableFace.setScale(scale);
-        drawableFace.setVertexBuffer(verticesBuffer);
-        drawableFace.setTextureBuffer(texCoordBuffer);
-        drawableFace.setIndicesBuffer(indicesBuffer);
-        drawableFace.setScaleType(Drawable2d.SCALE_TYPE_FIT);
-        drawableFace.setImageSource(new ImageSource(sourceBitmap));
+            drawableFace.setVertexBuffer(verticesBuffer);
+            drawableFace.setTextureBuffer(texCoordBuffer);
+            drawableFace.setIndicesBuffer(indicesBuffer);
+            drawableFace.setScaleType(Drawable2d.SCALE_TYPE_FIT);
+            drawableFace.setImageSource(new ImageSource(sourceBitmap));
+            root.addChild(drawableFace);
+        }*/
 
-        root.addChild(drawableFace);
+        {
+            Drawable2d drawableFace = new Drawable2d();
+            drawableFace.setRotate(rotationAngles[0], rotationAngles[1], rotationAngles[2]);
+            drawableFace.setVertexBuffer(verticesBuffer);
+            drawableFace.setTextureBuffer(texCoordBuffer);
+            drawableFace.setIndicesBuffer(indicesBuffer);
+            drawableFace.setScaleType(Drawable2d.SCALE_TYPE_FIT);
+            drawableFace.setImageSource(new ImageSource(sourceBitmap));
+            drawableFace.setFilterMode(FilterManager.FACE_FILTER);
+            root.addChild(drawableFace);
+        }
+        root.setLifecycleListener(this, true);
+    }
+
+    @Override
+    public void onFilterPredraw(OpenGLRenderer.Fuzzy renderTargetType, RenderTarget renderTarget, Drawable drawable, BaseFilter filter) {
+        super.onFilterPredraw(renderTargetType, renderTarget, drawable, filter);
+        if (filter instanceof FaceFilter) {
+            ((FaceFilter)filter).setRect(rect);
+        }
+    }
+
+    @Override
+    public void onFilterSetup(RenderTarget renderTarget, Drawable drawable, BaseFilter filter) {
+        super.onFilterSetup(renderTarget, drawable, filter);
+        if (filter instanceof FaceFilter) {
+            ((FaceFilter)filter).setRect(rect);
+        }
     }
 
     @Override

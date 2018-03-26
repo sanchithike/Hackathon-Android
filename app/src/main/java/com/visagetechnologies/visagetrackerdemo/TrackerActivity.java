@@ -18,6 +18,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.media.FaceDetector;
@@ -163,6 +165,7 @@ public class TrackerActivity extends AppCompatActivity
 			Scene3D.texCoordBuffer = Utils.getFloatBuffer(getSourceFaces()[sourceFaceIndex].getFaceModelTextureCoords());
 			Scene3D.indicesBuffer = Utils.getShortBuffer(getDestinationFaces()[destinationFaceIndex].getCorrectedTriangles());
 
+			Scene3D.rect = convertRect(getSourceFaces()[sourceFaceIndex].getFaceRect());
 			// Translation
 			double[] translation = new double[3];
 			float[] translationFace = getDestinationFaces()[destinationFaceIndex].getFaceTranslation();
@@ -214,6 +217,16 @@ public class TrackerActivity extends AppCompatActivity
 			Log.d("TrackerActivity","Unable to detect faces in source or destination image");
 		}
 	}
+
+	private RectF convertRect(Rect faceRect) {
+		RectF result = new RectF();
+		result.top = (float) faceRect.top / sourceBitmap.getHeight();
+		result.bottom = (float) faceRect.bottom / sourceBitmap.getHeight();
+		result.left = (float) faceRect.left / sourceBitmap.getWidth();
+		result.right = (float) faceRect.right / sourceBitmap.getWidth();
+		return result;
+	}
+
 	/*public void setFaces(FaceData[] faces){
 		if(faces != null){
 			this.faces = faces;

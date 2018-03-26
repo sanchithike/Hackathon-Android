@@ -786,8 +786,8 @@ public class OpenGLRenderer {
             }
             Matrix.scaleM(mvMatrix,0,ratio,ratio,1);
             Matrix.translateM(mvMatrix,0,(float) Scene3D.translation[0] * 1,(float)Scene3D.translation[1],(float)Scene3D.translation[2]);
-            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[0],1,0,0);
             Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[1],0,1,0);
+            Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[0],1,0,0);
             Matrix.rotateM(mvMatrix,0,Scene3D.rotationAngles[2],0,0,1);
         }
 

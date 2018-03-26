@@ -22,6 +22,7 @@ import com.roposo.creation.graphics.filters.DiagonalMirrorFilter;
 import com.roposo.creation.graphics.filters.DonGlowFilter;
 import com.roposo.creation.graphics.filters.EdgeGlowFilter;
 import com.roposo.creation.graphics.filters.EdgeGlowInDarkness;
+import com.roposo.creation.graphics.filters.FaceFilter;
 import com.roposo.creation.graphics.filters.FragmentShaderArgsFunctions;
 import com.roposo.creation.graphics.filters.GhostEffectFilter;
 import com.roposo.creation.graphics.filters.GrainyFilter;
@@ -129,6 +130,7 @@ public class FilterManager {
     public static final String HEXA_FILTER = "HexaFilter";
     public static final String DILATION_FILTER = "DilationFilter";
 
+    public static final String FACE_FILTER = "FaceFilter";
     public static final String HISTOPYRAMID_CALCULATOR_FILTER = "HistoPyramidCalculatorFilter";
     public static final String HISTOPYRAMIDSUM_CALCULATOR_FILTER = "HistoPyramidSumCalculatorFilter";
     public static final String HISTOPYRAMID_DIVIDE_BY1K_FILTER = "HistoPyramidDivideBy1kFilter";
@@ -295,6 +297,8 @@ public class FilterManager {
                 return new LutFilter();
             case HEXA_FILTER:
                 return new HexaFilter();
+            case FACE_FILTER:
+                return new FaceFilter();
             case HISTOPYRAMID_CALCULATOR_FILTER:
                 return new HistoPyramidCalculatorFilter();
             case HISTOPYRAMIDSUM_CALCULATOR_FILTER:
