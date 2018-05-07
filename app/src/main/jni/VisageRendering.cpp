@@ -999,161 +999,106 @@ int VisageRendering::getVerticesLength(FaceData *trackingData){
         return nVert;
 }
 
-void VisageRendering::getLeftEyeModel(FaceData *trackingData, float *eyeModel){
+
+void VisageRendering::getLeftEyeSpline(FaceData *trackingData, vector<float> points){
     static int leftEye[] = {
-        3,6,
-        3,14,
-        3,12,
-        3,10,
-        3,8
-    }
-
-    vector<float> pointCoords;
-    int n = 0;
-    FDP *fdp = trackingData->featurePoints2D;
-
-    for (int i = 0; i < 5; i++)
-    {
-        const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
-        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
-        {
-            pointCoords.push_back(fp.pos[0]);
-            pointCoords.push_back(fp.pos[1]);
-            n++;
+            3,6,
+            3,14,
+            3,12,
+            3,10,
+            3,8
         }
-    }
 
-    if(pointCoords.size() == 0 || n <= 2)
-        return ;
+        vector<float> pointCoords;
+        int n = 0;
+        FDP *fdp = trackingData->featurePoints2D;
 
-    int factor = 10;
-    vector<float> pointsToDraw;
-    VisageRendering::CalcSpline(pointCoords, factor, pointsToDraw);
-    int nVert = (int)pointsToDraw.size() / 2;
+        for (int i = 0; i < 5; i++)
+        {
+            const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
+            if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
+            {
+                pointCoords.push_back(fp.pos[0]);
+                pointCoords.push_back(fp.pos[1]);
+                n++;
+            }
+        }
+
+        if(pointCoords.size() == 0 || n <= 2)
+            return ;
+
+        int factor = 10;
+        VisageRendering::CalcSpline(pointCoords, factor, points);
+}
+
+void VisageRendering::getRightEyeSpline(FaceData *trackingData, vector<float> points){
+    static int leftEye[] = {
+            3,6,
+            3,14,
+            3,12,
+            3,10,
+            3,8
+        }
+
+        vector<float> pointCoords;
+        int n = 0;
+        FDP *fdp = trackingData->featurePoints2D;
+
+        for (int i = 0; i < 5; i++)
+        {
+            const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
+            if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
+            {
+                pointCoords.push_back(fp.pos[0]);
+                pointCoords.push_back(fp.pos[1]);
+                n++;
+            }
+        }
+
+        if(pointCoords.size() == 0 || n <= 2)
+            return ;
+
+        int factor = 10;
+        VisageRendering::CalcSpline(pointCoords, factor, points);
+}
+
+void VisageRendering::getLeftEyeModel(vector<float> points, float *eyeModel){
+    int nVert = (int)points.size() / 2;
     int cnt = 0;
     for (int i = 0; i < nVert; ++i)
     {
-        eyeModel[3*i] = pointsToDraw.at(cnt++);
-        eyeModel[3*i+1] = pointsToDraw.at(cnt++);
+        eyeModel[3*i] = points.at(cnt++);
+        eyeModel[3*i+1] = points.at(cnt++);
         eyeModel[3*i+2] = 0.0f;
     }
 }
 
-void VisageRendering::getRightEyeModel(FaceData *trackingData, float *eyeModel){
-
-    static int rightEye[] = {
-        3,5,
-        3,13,
-        3,11,
-        3,9,
-        3,7
-    }
-
-    vector<float> pointCoords;
-    int n = 0;
-    FDP *fdp = trackingData->featurePoints2D;
-
-    for (int i = 0; i < 5; i++)
-    {
-        const FeaturePoint &fp = fdp->getFP(rightEye[2*i],rightEye[2*i+1]);
-        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
-        {
-            pointCoords.push_back(fp.pos[0]);
-            pointCoords.push_back(fp.pos[1]);
-            n++;
-        }
-    }
-
-    if(pointCoords.size() == 0 || n <= 2)
-        return ;
-
-    int factor = 10;
-    vector<float> pointsToDraw;
-    VisageRendering::CalcSpline(pointCoords, factor, pointsToDraw);
-    int nVert = (int)pointsToDraw.size() / 2;
+void VisageRendering::getRightEyeModel(vector<float> points, float *eyeModel){
+    int nVert = (int)points.size() / 2;
     int cnt = 0;
     for (int i = 0; i < nVert; ++i)
     {
-        eyeModel[3*i] = pointsToDraw.at(cnt++);
-        eyeModel[3*i+1] = pointsToDraw.at(cnt++);
+        eyeModel[3*i] = points.at(cnt++);
+        eyeModel[3*i+1] = points.at(cnt++);
         eyeModel[3*i+2] = 0.0f;
     }
 }
 
-void VisageRendering::getLeftEyeTexture(FaceData *trackingData, float* unwrapDimensions, float* textureCoordinates){
-    static int leftEye[] = {
-        3,6,
-        3,14,
-        3,12,
-        3,10,
-        3,8
-    }
-
-    vector<float> pointCoords;
-    int n = 0;
-    FDP *fdp = trackingData->featurePoints2D;
-
-    for (int i = 0; i < 5; i++)
-    {
-        const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
-        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
-        {
-            pointCoords.push_back(fp.pos[0]);
-            pointCoords.push_back(fp.pos[1]);
-            n++;
-        }
-    }
-
-    if(pointCoords.size() == 0 || n <= 2)
-        return ;
-
-    int factor = 10;
-    vector<float> pointsToDraw;
-    VisageRendering::CalcSpline(pointCoords, factor, pointsToDraw);
-    int nVert = (int)pointsToDraw.size() / 2;
-    int cnt = 0;
+void VisageRendering::getLeftEyeTexture(vector<float> points, float* textureCoordinates){
+    int nVert = (int)points.size() / 2;
     for (int i = 0; i < nVert; ++i)
     {
-        textureCoordinates[2 * i ] = pointsToDraw.at(2*i+0);
-        textureCoordinates[2 * i + 1] = 1.0f - pointsToDraw.at(2*i+1);
+        textureCoordinates[2 * i ] = points.at(2*i+0);
+        textureCoordinates[2 * i + 1] = 1.0f - points.at(2*i+1);
     }
 }
 
-void VisageRendering::getRightEyeTexture(FaceData *trackingData, float* unwrapDimensions, float* textureCoordinates){
-    static int rightEye[] = {
-        3,5,
-        3,13,
-        3,11,
-        3,9,
-        3,7
-    }
-    vector<float> pointCoords;
-    int n = 0;
-    FDP *fdp = trackingData->featurePoints2D;
-
-    for (int i = 0; i < 5; i++)
-    {
-        const FeaturePoint &fp = fdp->getFP(rightEye[2*i],rightEye[2*i+1]);
-        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
-        {
-            pointCoords.push_back(fp.pos[0]);
-            pointCoords.push_back(fp.pos[1]);
-            n++;
-        }
-    }
-
-    if(pointCoords.size() == 0 || n <= 2)
-        return ;
-
-    int factor = 10;
-    vector<float> pointsToDraw;
-    VisageRendering::CalcSpline(pointCoords, factor, pointsToDraw);
-    int nVert = (int)pointsToDraw.size() / 2;
-    int cnt = 0;
+void VisageRendering::getRightEyeTexture(vector<float> points, float* textureCoordinates){
+    int nVert = (int)points.size() / 2;
     for (int i = 0; i < nVert; ++i)
     {
-        textureCoordinates[2 * i ] = pointsToDraw.at(2*i+0);
-        textureCoordinates[2 * i + 1] = 1.0f - pointsToDraw.at(2*i+1);
+        textureCoordinates[2 * i ] = points.at(2*i+0);
+        textureCoordinates[2 * i + 1] = 1.0f - points.at(2*i+1);
     }
 }
 

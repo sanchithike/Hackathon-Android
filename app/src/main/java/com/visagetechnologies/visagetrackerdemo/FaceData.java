@@ -27,8 +27,12 @@ public class FaceData implements Serializable,Comparator<FaceData> {
     private Rect faceRect;
     private Bitmap bitmap;
     private int[] medianColor;
+    private float[] leftEyeVertices;
+    private float[] rightEyeVertices;
+    private float[] leftEyeTextureCoordinates;
+    private float[] rightEyeTextureCoordinates;
 
-    public FaceData(float[] faceTranslation, float[] faceRotation, float[] faceModelVertices, float[] faceModelTextureCoords, float[] faceVerticesProjected, int[] faceModelTriangles, int faceScale, float cameraFocus, float[] faceContourVertices, float[] faceContourTextureCoordinates,int[] correctedTriangles){
+    public FaceData(float[] faceTranslation, float[] faceRotation, float[] faceModelVertices, float[] faceModelTextureCoords, float[] faceVerticesProjected, int[] faceModelTriangles, int faceScale, float cameraFocus, float[] faceContourVertices, float[] faceContourTextureCoordinates,int[] correctedTriangles,float[] leftEyeVertices, float[] rightEyeVertices, float[] leftEyeTextureCoordinates, float[] rightEyeTextureCoordinates){
         this.cameraFocus = cameraFocus;
         this.faceScale = faceScale;
         this.faceTranslation = faceTranslation;
@@ -40,6 +44,10 @@ public class FaceData implements Serializable,Comparator<FaceData> {
         this.faceContourVertices = faceContourVertices;
         this.faceContourTextureCoordinates = faceContourTextureCoordinates;
         this.correctedTriangles = correctedTriangles;
+        this.leftEyeTextureCoordinates = leftEyeTextureCoordinates;
+        this.rightEyeTextureCoordinates = rightEyeTextureCoordinates;
+        this.leftEyeVertices = leftEyeVertices;
+        this.rightEyeVertices = rightEyeVertices;
         reverseTexX();
         //calculateRect();
         //calculateMedian();
@@ -204,5 +212,37 @@ public class FaceData implements Serializable,Comparator<FaceData> {
 
     public void setCorrectedTriangles(int[] correctedTriangles) {
         this.correctedTriangles = correctedTriangles;
+    }
+
+    public float[] getLeftEyeVertices() {
+        return leftEyeVertices;
+    }
+
+    public void setLeftEyeVertices(float[] leftEyeVertices) {
+        this.leftEyeVertices = leftEyeVertices;
+    }
+
+    public float[] getRightEyeVertices() {
+        return rightEyeVertices;
+    }
+
+    public void setRightEyeVertices(float[] rightEyeVertices) {
+        this.rightEyeVertices = rightEyeVertices;
+    }
+
+    public float[] getLeftEyeTextureCoordinates() {
+        return leftEyeTextureCoordinates;
+    }
+
+    public void setLeftEyeTextureCoordinates(float[] leftEyeTextureCoordinates) {
+        this.leftEyeTextureCoordinates = leftEyeTextureCoordinates;
+    }
+
+    public float[] getRightEyeTextureCoordinates() {
+        return rightEyeTextureCoordinates;
+    }
+
+    public void setRightEyeTextureCoordinates(float[] rightEyeTextureCoordinates) {
+        this.rightEyeTextureCoordinates = rightEyeTextureCoordinates;
     }
 }

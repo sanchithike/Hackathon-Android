@@ -126,6 +126,18 @@ public:
 
     static int getVerticesLength(FaceData *trackingData);
 
+    static void getRightEyeSpline(FaceData *trackingData,vector<float>& points);
+
+    static void getLeftEyeSpline(FaceData *trackingData,vector<float>& points);
+
+    static void getRightEyeModel(vector<float>& points, float *eyeModel);
+
+    static void getLeftEyeModel(vector<float>& points, float *eyeModel);
+
+    static void getLeftEyeTexture(vector<float>& points, float *eyeTexture);
+
+    static void getRightEyeTexture(vector<float>& points, float *eyeTexture);
+
     static void getTextureUnwrapDimensions(const VsImage *image, float* textureUnwrap);
 
     static int* getCorrectedTriangleData(FaceData* trackingData, int* length);

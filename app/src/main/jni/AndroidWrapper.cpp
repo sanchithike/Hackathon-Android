@@ -399,7 +399,7 @@ jobjectArray Java_com_visagetechnologies_visagetrackerdemo_TrackerActivity_Track
     VisageRendering::getTextureUnwrapDimensions(renderSourceImage,uvBounds);
     for(j=0; j < MAX_FACES; j++){
         if (sourceTrackingStatus[j] == TRACK_STAT_OK){
-            jmethodID methodId = (_env)->GetMethodID(faceDataClass, "<init>", "([F[F[F[F[F[IIF[F[F[I)V");
+            jmethodID methodId = (_env)->GetMethodID(faceDataClass, "<init>", "([F[F[F[F[F[IIF[F[F[I[F[F[F[F)V");
             int numVertices = sourceImageTrackingData[j].faceModelVertexCount;
             int numTriangles = sourceImageTrackingData[j].faceModelTriangleCount;
             float vertexDataTemp[numVertices*3];
@@ -429,6 +429,28 @@ jobjectArray Java_com_visagetechnologies_visagetrackerdemo_TrackerActivity_Track
 
             float* contourTextureTemp = new float[2 * numContourVertices];
             VisageRendering::getTextureCoordinateArray(&sourceImageTrackingData[j],uvBounds,contourTextureTemp);
+
+            vector<float> rightSpline;
+            VisageRendering::getRightEyeSpline(&sourceImageTrackingData[j],rightSpline);
+            int rightEyeSplineVertexCount = (int)rightSpline.size() / 2;
+            float* rightEyeVertices = new float[3 * rightEyeSplineVertexCount];
+            VisageRendering::getRightEyeModel(rightSpline,rightEyeVertices);
+            float* rightEyeTextureCoordinates = new float[2 * rightEyeSplineVertexCount];
+            VisageRendering::getRightEyeTexture(rightSpline,rightEyeTextureCoordinates);
+            jfloatArray rightEyeVerticesArray = (_env)->NewFloatArray(3 * rightEyeSplineVertexCount);
+            jfloatArray rightEyeTextureCoordinatesArray = (_env)->NewFloatArray(2 * rightEyeSplineVertexCount);
+
+
+
+            vector<float> leftSpline;
+            VisageRendering::getLeftEyeSpline(&sourceImageTrackingData[j],leftSpline);
+            int leftEyeSplineVertexCount = (int)leftSpline.size() / 2;
+            float* leftEyeVertices = new float[3 * leftEyeSplineVertexCount];
+            VisageRendering::getLeftEyeModel(leftSpline,leftEyeVertices);
+            float* leftEyeTextureCoordinates = new float[2 * leftEyeSplineVertexCount];
+            VisageRendering::getLeftEyeTexture(leftSpline,leftEyeTextureCoordinates);
+            jfloatArray leftEyeVerticesArray = (_env)->NewFloatArray(3 * leftEyeSplineVertexCount);
+            jfloatArray leftEyeTextureCoordinatesArray = (_env)->NewFloatArray(2 * leftEyeSplineVertexCount);
 
             int i = 0;
 
@@ -466,7 +488,14 @@ jobjectArray Java_com_visagetechnologies_visagetrackerdemo_TrackerActivity_Track
 
             (_env)->SetFloatArrayRegion(faceContourVertices,0,3 * numContourVertices,contourVerticesTemp);
             (_env)->SetFloatArrayRegion(faceContourTextureCoordinates,0,2 * numContourVertices,contourTextureTemp);
-            jobject faceData = (_env)->NewObject(faceDataClass, methodId,translationData,rotationData,vertexData,textureData,projectedData,triangleData,sourceImageTrackingData[0].faceScale,sourceImageTrackingData[0].cameraFocus,faceContourVertices,faceContourTextureCoordinates,correctedTriangleData);
+
+
+            (_env)->SetFloatArrayRegion(rightEyeVerticesArray,0,3 * rightEyeSplineVertexCount,rightEyeVertices);
+            (_env)->SetFloatArrayRegion(leftEyeVerticesArray,0,3 * leftEyeSplineVertexCount,leftEyeVertices);
+
+            (_env)->SetFloatArrayRegion(rightEyeTextureCoordinatesArray,0,2 * rightEyeSplineVertexCount,rightEyeTextureCoordinates);
+            (_env)->SetFloatArrayRegion(leftEyeTextureCoordinatesArray,0,2 * leftEyeSplineVertexCount,leftEyeTextureCoordinates);
+            jobject faceData = (_env)->NewObject(faceDataClass, methodId,translationData,rotationData,vertexData,textureData,projectedData,triangleData,sourceImageTrackingData[0].faceScale,sourceImageTrackingData[0].cameraFocus,faceContourVertices,faceContourTextureCoordinates,correctedTriangleData,leftEyeVerticesArray,rightEyeVerticesArray,leftEyeTextureCoordinatesArray,rightEyeTextureCoordinatesArray);
             (_env)->SetObjectArrayElement(faceObjArray , k, faceData);
             k++;
         }
@@ -499,7 +528,7 @@ jobjectArray Java_com_visagetechnologies_visagetrackerdemo_TrackerActivity_Track
     VisageRendering::getTextureUnwrapDimensions(renderDestinationImage,uvBounds);
     for(j=0; j < MAX_FACES; j++){
         if (destinationTrackingStatus[j] == TRACK_STAT_OK){
-            jmethodID methodId = (_env)->GetMethodID(faceDataClass, "<init>", "([F[F[F[F[F[IIF[F[F[I)V");
+            jmethodID methodId = (_env)->GetMethodID(faceDataClass, "<init>", "([F[F[F[F[F[IIF[F[F[I[F[F[F[F)V");
             int numVertices = destinationImageTrackingData[j].faceModelVertexCount;
             int numTriangles = destinationImageTrackingData[j].faceModelTriangleCount;
             float vertexDataTemp[numVertices*3];
@@ -529,6 +558,28 @@ jobjectArray Java_com_visagetechnologies_visagetrackerdemo_TrackerActivity_Track
 
             float* contourTextureTemp = new float[2 * numContourVertices];
             VisageRendering::getTextureCoordinateArray(&destinationImageTrackingData[j],uvBounds,contourTextureTemp);
+
+            vector<float> rightSpline;
+            VisageRendering::getRightEyeSpline(&destinationImageTrackingData[j],rightSpline);
+            int rightEyeSplineVertexCount = (int)rightSpline.size() / 2;
+            float* rightEyeVertices = new float[3 * rightEyeSplineVertexCount];
+            VisageRendering::getRightEyeModel(rightSpline,rightEyeVertices);
+            float* rightEyeTextureCoordinates = new float[2 * rightEyeSplineVertexCount];
+            VisageRendering::getRightEyeTexture(rightSpline,rightEyeTextureCoordinates);
+            jfloatArray rightEyeVerticesArray = (_env)->NewFloatArray(3 * rightEyeSplineVertexCount);
+            jfloatArray rightEyeTextureCoordinatesArray = (_env)->NewFloatArray(2 * rightEyeSplineVertexCount);
+
+
+
+            vector<float> leftSpline;
+            VisageRendering::getLeftEyeSpline(&destinationImageTrackingData[j],leftSpline);
+            int leftEyeSplineVertexCount = (int)leftSpline.size() / 2;
+            float* leftEyeVertices = new float[3 * leftEyeSplineVertexCount];
+            VisageRendering::getLeftEyeModel(leftSpline,leftEyeVertices);
+            float* leftEyeTextureCoordinates = new float[2 * leftEyeSplineVertexCount];
+            VisageRendering::getLeftEyeTexture(leftSpline,leftEyeTextureCoordinates);
+            jfloatArray leftEyeVerticesArray = (_env)->NewFloatArray(3 * leftEyeSplineVertexCount);
+            jfloatArray leftEyeTextureCoordinatesArray = (_env)->NewFloatArray(2 * leftEyeSplineVertexCount);
 
             for(i=0;i<numVertices;i++)
             {
@@ -563,7 +614,13 @@ jobjectArray Java_com_visagetechnologies_visagetrackerdemo_TrackerActivity_Track
             (_env)->SetFloatArrayRegion(faceContourTextureCoordinates,0,2 * numContourVertices,contourTextureTemp);
             (_env)->SetIntArrayRegion(correctedTriangleData,0,*length,correctedTriangles);
 
-            jobject faceData = (_env)->NewObject(faceDataClass, methodId,translationData,rotationData,vertexData,textureData,projectedData,triangleData,destinationImageTrackingData[0].faceScale,destinationImageTrackingData[0].cameraFocus,faceContourVertices,faceContourTextureCoordinates,correctedTriangleData);
+            (_env)->SetFloatArrayRegion(rightEyeVerticesArray,0,3 * rightEyeSplineVertexCount,rightEyeVertices);
+            (_env)->SetFloatArrayRegion(leftEyeVerticesArray,0,3 * leftEyeSplineVertexCount,leftEyeVertices);
+
+            (_env)->SetFloatArrayRegion(rightEyeTextureCoordinatesArray,0,2 * rightEyeSplineVertexCount,rightEyeTextureCoordinates);
+            (_env)->SetFloatArrayRegion(leftEyeTextureCoordinatesArray,0,2 * leftEyeSplineVertexCount,leftEyeTextureCoordinates);
+
+            jobject faceData = (_env)->NewObject(faceDataClass, methodId,translationData,rotationData,vertexData,textureData,projectedData,triangleData,destinationImageTrackingData[0].faceScale,destinationImageTrackingData[0].cameraFocus,faceContourVertices,faceContourTextureCoordinates,correctedTriangleData,leftEyeVerticesArray,rightEyeVerticesArray,leftEyeTextureCoordinatesArray,rightEyeTextureCoordinatesArray);
             (_env)->SetObjectArrayElement(faceObjArray , k, faceData);
             k++;
         }
