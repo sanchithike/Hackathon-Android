@@ -999,92 +999,182 @@ int VisageRendering::getVerticesLength(FaceData *trackingData){
         return nVert;
 }
 
+void VisageRendering::getEyeTriangles(int* eyeTriangles){
+    eyeTriangles[0] = 1;
+    eyeTriangles[1] = 7;
+    eyeTriangles[2] = 0;
+    eyeTriangles[3] = 2;
+    eyeTriangles[4] = 3;
+    eyeTriangles[5] = 1;
+    eyeTriangles[6] = 3;
+    eyeTriangles[7] = 4;
+    eyeTriangles[8] = 1;
+    eyeTriangles[9] = 4;
+    eyeTriangles[10] = 5;
+    eyeTriangles[11] = 1;
+    eyeTriangles[12] = 5;
+    eyeTriangles[13] = 6;
+    eyeTriangles[14] = 1;
+    eyeTriangles[15] = 6;
+    eyeTriangles[16] = 7;
+    eyeTriangles[17] = 1;
+}
 
-void VisageRendering::getLeftEyeSpline(FaceData *trackingData, vector<float> points){
+
+void VisageRendering::getLeftEyeSpline3D(FaceData *trackingData, vector<float>& points){
     static int leftEye[] = {
-            3,6,
             3,14,
+            12,10,
             3,12,
+            12,12,
             3,10,
-            3,8
-        }
+            12,8,
+            3,8,
+            12,6
+        };
 
-        vector<float> pointCoords;
         int n = 0;
-        FDP *fdp = trackingData->featurePoints2D;
+        FDP *fdp = trackingData->featurePoints3DRelative;
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 8; i++)
         {
             const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
             if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
             {
-                pointCoords.push_back(fp.pos[0]);
-                pointCoords.push_back(fp.pos[1]);
+                points.push_back(fp.pos[0]);
+                points.push_back(fp.pos[1]);
+                points.push_back(fp.pos[2]);
                 n++;
             }
         }
 
-        if(pointCoords.size() == 0 || n <= 2)
+        if(points.size() == 0 || n <= 2)
             return ;
-
-        int factor = 10;
-        VisageRendering::CalcSpline(pointCoords, factor, points);
 }
 
-void VisageRendering::getRightEyeSpline(FaceData *trackingData, vector<float> points){
+void VisageRendering::getLeftEyeSpline2D(FaceData *trackingData, vector<float>& points){
     static int leftEye[] = {
-            3,6,
-            3,14,
-            3,12,
-            3,10,
-            3,8
-        }
+        3,14,
+        12,10,
+        3,12,
+        12,12,
+        3,10,
+        12,8,
+        3,8,
+        12,6
+    };
 
-        vector<float> pointCoords;
-        int n = 0;
-        FDP *fdp = trackingData->featurePoints2D;
+    int n = 0;
+    FDP *fdp = trackingData->featurePoints2D;
 
-        for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 8; i++)
+    {
+        const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
+        if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
         {
-            const FeaturePoint &fp = fdp->getFP(leftEye[2*i],leftEye[2*i+1]);
+            points.push_back(fp.pos[0]);
+            points.push_back(fp.pos[1]);
+            n++;
+        }
+    }
+
+    if(points.size() == 0 || n <= 2)
+        return ;
+
+    //int factor = 1;
+    //VisageRendering::CalcSpline(pointCoords, factor, points);
+}
+
+void VisageRendering::getRightEyeSpline3D(FaceData *trackingData, vector<float>& points){
+    static int rightEye[] = {
+            3,13,
+            12,9,
+            3,11,
+            12,11,
+            3,9,
+            12,7,
+            3,7,
+            12,5
+        };
+
+        int n = 0;
+        FDP *fdp = trackingData->featurePoints3DRelative;
+        for (int i = 0; i < 8; i++)
+        {
+            const FeaturePoint &fp = fdp->getFP(rightEye[2*i],rightEye[2*i+1]);
             if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
             {
-                pointCoords.push_back(fp.pos[0]);
-                pointCoords.push_back(fp.pos[1]);
+                points.push_back(fp.pos[0]);
+                points.push_back(fp.pos[1]);
+                points.push_back(fp.pos[2]);
                 n++;
             }
         }
 
-        if(pointCoords.size() == 0 || n <= 2)
+        if(points.size() == 0 || n <= 2)
             return ;
 
-        int factor = 10;
-        VisageRendering::CalcSpline(pointCoords, factor, points);
+        //int factor = 1;
+        //VisageRendering::CalcSpline(pointCoords, factor, points);
+        LOGI("%s - %d","3d spline points are ",points.size());
 }
 
-void VisageRendering::getLeftEyeModel(vector<float> points, float *eyeModel){
-    int nVert = (int)points.size() / 2;
+void VisageRendering::getRightEyeSpline2D(FaceData *trackingData, vector<float>& points){
+    static int rightEye[] = {
+            3,13,
+            12,9,
+            3,11,
+            12,11,
+            3,9,
+            12,7,
+            3,7,
+            12,5
+        };
+
+        int n = 0;
+        FDP *fdp = trackingData->featurePoints2D;
+        for (int i = 0; i < 8; i++)
+        {
+            const FeaturePoint &fp = fdp->getFP(rightEye[2*i],rightEye[2*i+1]);
+            if(fp.defined && fp.pos[0]!=0 && fp.pos[1]!=0)
+            {
+                points.push_back(fp.pos[0]);
+                points.push_back(fp.pos[1]);
+                n++;
+            }
+        }
+
+        if(points.size() == 0 || n <= 2)
+            return ;
+
+        //int factor = 1;
+        //VisageRendering::CalcSpline(pointCoords, factor, points);
+        LOGI("%s - %d","2d spline points are ",points.size());
+}
+
+void VisageRendering::getLeftEyeModel(vector<float>& points, float *eyeModel){
+    int nVert = (int)points.size() / 3;
     int cnt = 0;
     for (int i = 0; i < nVert; ++i)
     {
         eyeModel[3*i] = points.at(cnt++);
         eyeModel[3*i+1] = points.at(cnt++);
-        eyeModel[3*i+2] = 0.0f;
+        eyeModel[3*i+2] = points.at(cnt++);
     }
 }
 
-void VisageRendering::getRightEyeModel(vector<float> points, float *eyeModel){
-    int nVert = (int)points.size() / 2;
+void VisageRendering::getRightEyeModel(vector<float>& points, float *eyeModel){
+    int nVert = (int)points.size() / 3;
     int cnt = 0;
     for (int i = 0; i < nVert; ++i)
     {
         eyeModel[3*i] = points.at(cnt++);
         eyeModel[3*i+1] = points.at(cnt++);
-        eyeModel[3*i+2] = 0.0f;
+        eyeModel[3*i+2] = points.at(cnt++);
     }
 }
 
-void VisageRendering::getLeftEyeTexture(vector<float> points, float* textureCoordinates){
+void VisageRendering::getLeftEyeTexture(vector<float>& points, float* textureCoordinates){
     int nVert = (int)points.size() / 2;
     for (int i = 0; i < nVert; ++i)
     {
@@ -1093,7 +1183,7 @@ void VisageRendering::getLeftEyeTexture(vector<float> points, float* textureCoor
     }
 }
 
-void VisageRendering::getRightEyeTexture(vector<float> points, float* textureCoordinates){
+void VisageRendering::getRightEyeTexture(vector<float>& points, float* textureCoordinates){
     int nVert = (int)points.size() / 2;
     for (int i = 0; i < nVert; ++i)
     {
@@ -2039,14 +2129,14 @@ int* VisageRendering::getCorrectedTriangleData(FaceData* trackingData, int *leng
         indexList.push_back(triangle[0]);
         indexList.push_back(triangle[1]);
         indexList.push_back(triangle[2]);
-        LOGI("current triangle indices: %2d %2d %2d", triangle[0], triangle[1], triangle[2]);
+        //LOGI("current triangle indices: %2d %2d %2d", triangle[0], triangle[1], triangle[2]);
     }
     output.clear();
     for (std::vector<GLushort>::iterator it= indexList.begin(); it!=indexList.end(); ++it)
     {
         output.push_back(*it);
     }
-    LOGI("%s - %d","output.size()",output.size());
+    //LOGI("%s - %d","output.size()",output.size());
     int* outputFinal = new int[output.size()];
     int i = 0;
     for (std::vector<GLushort>::iterator it = output.begin() ; it != output.end(); ++it){
@@ -2055,7 +2145,7 @@ int* VisageRendering::getCorrectedTriangleData(FaceData* trackingData, int *leng
     }
     *length = output.size();
     for(int i = 0; i < *length; i++) {
-        LOGI("output: %2d", outputFinal[i]);
+        //LOGI("output: %2d", outputFinal[i]);
     }
     return outputFinal;
 }
@@ -2128,12 +2218,12 @@ void VisageRendering::DisplayWireFrame(FaceData* trackingData, int width, int he
 	    LOGI("%s - %d","Element value is ",*it);
 	}
 	int h = 0;
-	for (h = 0; h < trackingData->faceModelTriangleCount; h++){
-        LOGI("%s - %d - %d","Triangle with index value is ",3*h+0,trackingData->faceModelTriangles[3*h+0]);
-        LOGI("%s - %d - %d","Triangle with index value is ",3*h+1,trackingData->faceModelTriangles[3*h+1]);
-        LOGI("%s - %d - %d","Triangle with index value is ",3*h+2,trackingData->faceModelTriangles[3*h+2]);
-    }
-    LOGI("%s - %d","Output size is",output.size());
+	//for (h = 0; h < trackingData->faceModelTriangleCount; h++){
+    //    LOGI("%s - %d - %d","Triangle with index value is ",3*h+0,trackingData->faceModelTriangles[3*h+0]);
+    //    LOGI("%s - %d - %d","Triangle with index value is ",3*h+1,trackingData->faceModelTriangles[3*h+1]);
+    //    LOGI("%s - %d - %d","Triangle with index value is ",3*h+2,trackingData->faceModelTriangles[3*h+2]);
+    //}
+    //LOGI("%s - %d","Output size is",output.size());
 	numberOfVertices = trackingData->faceModelVertexCount;
 
 	glDrawElements(GL_LINES, (int)output.size(), GL_UNSIGNED_SHORT, &output[0]);

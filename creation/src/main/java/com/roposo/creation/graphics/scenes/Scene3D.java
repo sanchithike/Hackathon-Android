@@ -39,6 +39,12 @@ public class Scene3D extends DemoScene {
     public static FloatBuffer texCoordBuffer;
     public static ShortBuffer indicesBuffer;
 
+    public static FloatBuffer leftEyeVerticesBuffer;
+    public static FloatBuffer leftEyeTexCoordBuffer;
+    public static FloatBuffer rightEyeVerticesBuffer;
+    public static FloatBuffer rightEyeTexCoordBuffer;
+    public static ShortBuffer eyeIndicesBuffer;
+
     public static float[] rotationAngles;
     public static double[] translation;
     public static double[] scale;
@@ -68,6 +74,28 @@ public class Scene3D extends DemoScene {
             root.addChild(drawableFace);
         }*/
 
+
+
+        Drawable2d drawableLeftEye = new Drawable2d();
+        drawableLeftEye.setRotate(rotationAngles[0],rotationAngles[1],rotationAngles[2]);
+        drawableLeftEye.setVertexBuffer(leftEyeVerticesBuffer);
+        drawableLeftEye.setTextureBuffer(leftEyeTexCoordBuffer);
+        drawableLeftEye.setIndicesBuffer(eyeIndicesBuffer);
+        drawableLeftEye.setScaleType(Drawable2d.SCALE_TYPE_FIT);
+        drawableLeftEye.setImageSource(new ImageSource(sourceBitmap));
+        drawableLeftEye.setFilterMode(FilterManager.FACE_FILTER);
+        root.addChild(drawableLeftEye);
+
+        Drawable2d drawableRightEye = new Drawable2d();
+        drawableRightEye.setRotate(rotationAngles[0],rotationAngles[1],rotationAngles[2]);
+        drawableRightEye.setVertexBuffer(rightEyeVerticesBuffer);
+        drawableRightEye.setTextureBuffer(rightEyeTexCoordBuffer);
+        drawableRightEye.setIndicesBuffer(eyeIndicesBuffer);
+        drawableRightEye.setScaleType(Drawable2d.SCALE_TYPE_FIT);
+        drawableRightEye.setImageSource(new ImageSource(sourceBitmap));
+        drawableRightEye.setFilterMode(FilterManager.FACE_FILTER);
+        root.addChild(drawableRightEye);
+
         {
             Drawable2d drawableFace = new Drawable2d();
             drawableFace.setRotate(rotationAngles[0], rotationAngles[1], rotationAngles[2]);
@@ -79,6 +107,7 @@ public class Scene3D extends DemoScene {
             drawableFace.setFilterMode(FilterManager.FACE_FILTER);
             root.addChild(drawableFace);
         }
+
         root.setLifecycleListener(this, true);
     }
 

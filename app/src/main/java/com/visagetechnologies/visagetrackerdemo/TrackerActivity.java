@@ -164,6 +164,13 @@ public class TrackerActivity extends AppCompatActivity
 			Scene3D.verticesBuffer = Utils.getFloatBuffer(getDestinationFaces()[destinationFaceIndex].getFaceModelVertices());
 			Scene3D.texCoordBuffer = Utils.getFloatBuffer(getSourceFaces()[sourceFaceIndex].getFaceModelTextureCoords());
 			Scene3D.indicesBuffer = Utils.getShortBuffer(getDestinationFaces()[destinationFaceIndex].getCorrectedTriangles());
+			Scene3D.leftEyeVerticesBuffer = Utils.getFloatBuffer(getDestinationFaces()[destinationFaceIndex].getLeftEyeVertices());
+			Scene3D.leftEyeTexCoordBuffer = Utils.getFloatBuffer(getSourceFaces()[sourceFaceIndex].getLeftEyeTextureCoordinates());
+
+			Scene3D.rightEyeVerticesBuffer = Utils.getFloatBuffer(getDestinationFaces()[destinationFaceIndex].getRightEyeVertices());
+			Scene3D.rightEyeTexCoordBuffer = Utils.getFloatBuffer(getSourceFaces()[sourceFaceIndex].getRightEyeTextureCoordinates());
+
+			Scene3D.eyeIndicesBuffer = Utils.getShortBuffer(getSourceFaces()[sourceFaceIndex].getEyeTriangles());
 
 			Scene3D.rect = convertRect(getSourceFaces()[sourceFaceIndex].getFaceRect());
 			// Translation

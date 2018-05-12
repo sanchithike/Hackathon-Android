@@ -31,8 +31,9 @@ public class FaceData implements Serializable,Comparator<FaceData> {
     private float[] rightEyeVertices;
     private float[] leftEyeTextureCoordinates;
     private float[] rightEyeTextureCoordinates;
+    private int[] eyeTriangles;
 
-    public FaceData(float[] faceTranslation, float[] faceRotation, float[] faceModelVertices, float[] faceModelTextureCoords, float[] faceVerticesProjected, int[] faceModelTriangles, int faceScale, float cameraFocus, float[] faceContourVertices, float[] faceContourTextureCoordinates,int[] correctedTriangles,float[] leftEyeVertices, float[] rightEyeVertices, float[] leftEyeTextureCoordinates, float[] rightEyeTextureCoordinates){
+    public FaceData(float[] faceTranslation, float[] faceRotation, float[] faceModelVertices, float[] faceModelTextureCoords, float[] faceVerticesProjected, int[] faceModelTriangles, int faceScale, float cameraFocus, float[] faceContourVertices, float[] faceContourTextureCoordinates,int[] correctedTriangles,float[] leftEyeVertices, float[] rightEyeVertices, float[] leftEyeTextureCoordinates, float[] rightEyeTextureCoordinates,int[] eyeTriangles){
         this.cameraFocus = cameraFocus;
         this.faceScale = faceScale;
         this.faceTranslation = faceTranslation;
@@ -48,6 +49,7 @@ public class FaceData implements Serializable,Comparator<FaceData> {
         this.rightEyeTextureCoordinates = rightEyeTextureCoordinates;
         this.leftEyeVertices = leftEyeVertices;
         this.rightEyeVertices = rightEyeVertices;
+        this.eyeTriangles = eyeTriangles;
         reverseTexX();
         //calculateRect();
         //calculateMedian();
@@ -244,5 +246,13 @@ public class FaceData implements Serializable,Comparator<FaceData> {
 
     public void setRightEyeTextureCoordinates(float[] rightEyeTextureCoordinates) {
         this.rightEyeTextureCoordinates = rightEyeTextureCoordinates;
+    }
+
+    public int[] getEyeTriangles() {
+        return eyeTriangles;
+    }
+
+    public void setEyeTriangles(int[] eyeTriangles) {
+        this.eyeTriangles = eyeTriangles;
     }
 }

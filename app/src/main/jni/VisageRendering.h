@@ -126,9 +126,15 @@ public:
 
     static int getVerticesLength(FaceData *trackingData);
 
-    static void getRightEyeSpline(FaceData *trackingData,vector<float>& points);
+    static void getRightEyeSpline2D(FaceData *trackingData,vector<float>& points);
 
-    static void getLeftEyeSpline(FaceData *trackingData,vector<float>& points);
+    static void getRightEyeSpline3D(FaceData *trackingData,vector<float>& points);
+
+    static void getEyeTriangles(int *triangles);
+
+    static void getLeftEyeSpline2D(FaceData *trackingData,vector<float>& points);
+
+    static void getLeftEyeSpline3D(FaceData *trackingData,vector<float>& points);
 
     static void getRightEyeModel(vector<float>& points, float *eyeModel);
 
