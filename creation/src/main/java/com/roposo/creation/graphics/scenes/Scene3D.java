@@ -83,7 +83,7 @@ public class Scene3D extends DemoScene {
         drawableLeftEye.setIndicesBuffer(eyeIndicesBuffer);
         drawableLeftEye.setScaleType(Drawable2d.SCALE_TYPE_FIT);
         drawableLeftEye.setImageSource(new ImageSource(sourceBitmap));
-        drawableLeftEye.setFilterMode(FilterManager.FACE_FILTER);
+//        drawableLeftEye.setFilterMode(FilterManager.FACE_FILTER);
         root.addChild(drawableLeftEye);
 
         Drawable2d drawableRightEye = new Drawable2d();
@@ -93,7 +93,7 @@ public class Scene3D extends DemoScene {
         drawableRightEye.setIndicesBuffer(eyeIndicesBuffer);
         drawableRightEye.setScaleType(Drawable2d.SCALE_TYPE_FIT);
         drawableRightEye.setImageSource(new ImageSource(sourceBitmap));
-        drawableRightEye.setFilterMode(FilterManager.FACE_FILTER);
+//        drawableRightEye.setFilterMode(FilterManager.FACE_FILTER);
         root.addChild(drawableRightEye);
 
         {
@@ -104,7 +104,7 @@ public class Scene3D extends DemoScene {
             drawableFace.setIndicesBuffer(indicesBuffer);
             drawableFace.setScaleType(Drawable2d.SCALE_TYPE_FIT);
             drawableFace.setImageSource(new ImageSource(sourceBitmap));
-            drawableFace.setFilterMode(FilterManager.FACE_FILTER);
+//            drawableFace.setFilterMode(FilterManager.FACE_FILTER);
             root.addChild(drawableFace);
         }
 
@@ -115,7 +115,7 @@ public class Scene3D extends DemoScene {
     public void onFilterPredraw(OpenGLRenderer.Fuzzy renderTargetType, RenderTarget renderTarget, Drawable drawable, BaseFilter filter) {
         super.onFilterPredraw(renderTargetType, renderTarget, drawable, filter);
         if (filter instanceof FaceFilter) {
-            ((FaceFilter)filter).setRect(rect);
+            ((FaceFilter)filter).setRect( rect);
         }
     }
 

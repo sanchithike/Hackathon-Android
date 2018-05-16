@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.visagetechnologies.visagetrackerdemo"
-      android:versionCode="2"
-      android:versionName="1.1"
+      android:versionCode="3"
+      android:versionName="1.2"
       android:installLocation="preferExternal">
     <uses-sdk android:minSdkVersion="15" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
     <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
     <uses-feature android:name="android.hardware.camera"></uses-feature>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+    <!--<uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>-->
     <uses-feature android:name="android.hardware.camera.front" android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus"></uses-feature>
     <uses-permission android:name="android.permission.INTERNET"/>
     <application android:label="@string/app_name" android:icon="@drawable/icon">
-    <activity android:name=".ImagesActivity" android:screenOrientation="unspecified" android:configChanges="orientation|keyboardHidden|screenSize"
+    <activity android:name=".FaceActivity" android:screenOrientation="unspecified" android:configChanges="orientation|keyboardHidden|screenSize"
               android:label="@string/app_name">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -30,8 +30,11 @@
     <activity android:name=".WarningActivity" android:screenOrientation="unspecified" android:configChanges="orientation|keyboardHidden|screenSize"
               android:label="@string/app_name">
     </activity>
-    <activity android:name=".FaceActivity" android:screenOrientation="unspecified" android:configChanges="orientation|keyboardHidden|screenSize"
+    <activity android:name=".ImagesActivity" android:screenOrientation="unspecified" android:configChanges="orientation|keyboardHidden|screenSize"
         android:label="@string/app_name">
+    </activity>
+    <activity android:name=".RendererActivity" android:screenOrientation="unspecified" android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" android:theme="@style/AppTheme.NoActionBar">
     </activity>
 
 </application>

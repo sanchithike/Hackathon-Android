@@ -116,70 +116,70 @@ public class Utils {
         return intBuffer;
     }
 
-    public static void saveFaceDataToFile(Activity activity, FaceData faceData, String fileName){
-        boolean externalStorageStatus = isExternalStorageAvailable();
-        Log.d("Utils","externalStorageAvailable = "+externalStorageStatus);
-        boolean isReadOnly = isExternalStorageReadOnly();
-        Log.d("Utils","externalStorageReadOnly = " + externalStorageStatus);
-        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/HACKATHON/");
-        dir.mkdirs();
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/HACKATHON/" + fileName;
-        if (ContextCompat.checkSelfPermission(activity, // request permission when it is not granted.
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    1);
-        }
-        else{
-            try{
-                File file = new File(filePath);
-//                file.mkdirs();
-                if(!file.exists())
-                {
-                    file.createNewFile();
-                    // write code for saving data to the file
-                }
-                FileOutputStream fos = new FileOutputStream(file);
-                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-                // Vertices
-                int numVertices = faceData.getFaceModelVertices().length / 3;
-                for (int i = 0; i < numVertices; i++) {
-                    String line = "v" + SPACE + faceData.getFaceVerticesProjected()[2 * i] + SPACE + faceData.getFaceVerticesProjected()[2 * i + 1] + SPACE + 0;
-                    bw.write(line);
-                    bw.newLine();
-                }
-                bw.newLine();
-                bw.newLine();
-
-                // Texture Coordinates
-                for(int i = 0; i < numVertices; i++){
-                    String line = "vt" + SPACE + faceData.getFaceModelTextureCoords()[2 * i] + SPACE + faceData.getFaceModelTextureCoords()[2 * i + 1];
-                    bw.write(line);
-                    bw.newLine();
-                }
-
-                bw.newLine();
-                bw.newLine();
-
-                // Faces
-                int numTriangles = faceData.getFaceModelTriangles().length / 3;
-                for(int i = 0; i < numTriangles; i++){
-                    String line = "f" + SPACE + faceData.getFaceModelTriangles()[3 * i] + SPACE + faceData.getFaceModelTriangles()[3 * i + 1] + SPACE + faceData.getFaceModelTriangles()[3 * i + 2];
-                    bw.write(line);
-                    bw.newLine();
-                }
-                bw.close();
-                fos.close();
-                if(file.exists()){
-                    Log.d("Utils","file saved");
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    public static void saveFaceDataToFile(Activity activity, FaceData faceData, String fileName){
+//        boolean externalStorageStatus = isExternalStorageAvailable();
+//        Log.d("Utils","externalStorageAvailable = "+externalStorageStatus);
+//        boolean isReadOnly = isExternalStorageReadOnly();
+//        Log.d("Utils","externalStorageReadOnly = " + externalStorageStatus);
+//        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/HACKATHON/");
+//        dir.mkdirs();
+//        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/HACKATHON/" + fileName;
+//        if (ContextCompat.checkSelfPermission(activity, // request permission when it is not granted.
+//                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(activity,
+//                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+//                    1);
+//        }
+//        else{
+//            try{
+//                File file = new File(filePath);
+////                file.mkdirs();
+//                if(!file.exists())
+//                {
+//                    file.createNewFile();
+//                    // write code for saving data to the file
+//                }
+//                FileOutputStream fos = new FileOutputStream(file);
+//                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+//                // Vertices
+//                int numVertices = faceData.getFaceModelVertices().length / 3;
+//                for (int i = 0; i < numVertices; i++) {
+//                    String line = "v" + SPACE + faceData.getFaceVerticesProjected()[2 * i] + SPACE + faceData.getFaceVerticesProjected()[2 * i + 1] + SPACE + 0;
+//                    bw.write(line);
+//                    bw.newLine();
+//                }
+//                bw.newLine();
+//                bw.newLine();
+//
+//                // Texture Coordinates
+//                for(int i = 0; i < numVertices; i++){
+//                    String line = "vt" + SPACE + faceData.getFaceModelTextureCoords()[2 * i] + SPACE + faceData.getFaceModelTextureCoords()[2 * i + 1];
+//                    bw.write(line);
+//                    bw.newLine();
+//                }
+//
+//                bw.newLine();
+//                bw.newLine();
+//
+//                // Faces
+//                int numTriangles = faceData.getFaceModelTriangles().length / 3;
+//                for(int i = 0; i < numTriangles; i++){
+//                    String line = "f" + SPACE + faceData.getFaceModelTriangles()[3 * i] + SPACE + faceData.getFaceModelTriangles()[3 * i + 1] + SPACE + faceData.getFaceModelTriangles()[3 * i + 2];
+//                    bw.write(line);
+//                    bw.newLine();
+//                }
+//                bw.close();
+//                fos.close();
+//                if(file.exists()){
+//                    Log.d("Utils","file saved");
+//                }
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     private static boolean isExternalStorageAvailable() {
         String extStorageState = Environment.getExternalStorageState();

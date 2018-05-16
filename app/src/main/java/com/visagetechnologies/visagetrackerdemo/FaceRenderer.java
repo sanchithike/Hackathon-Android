@@ -378,42 +378,42 @@ public class FaceRenderer implements GLSurfaceView.Renderer {
         return intBuffer;
     }
 
-    void drawSourceFace(GL10 gl){
-        gl.glEnable(GL10.GL_TEXTURE_2D);
-        gl.glBindTexture(GL10.GL_TEXTURE_2D,textures[0]);
-        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-
-
-        float[] vertices = _trackerActivity.getDestinationFaces()[_destinationIndex].getFaceContourVertices();
-        ByteBuffer vertexByteBuffer=ByteBuffer.allocateDirect(vertices.length*4);
-        vertexByteBuffer.order(ByteOrder.nativeOrder());
-        FloatBuffer vertexbuffer=vertexByteBuffer.asFloatBuffer();
-        vertexbuffer.put(vertices);
-        vertexbuffer.position(0);
-
-        // Texture Coordinates
-        float[] texcoords = _trackerActivity.getSourceFaces()[_sourceIndex].getFaceContourTextureCoordinates();
-        ByteBuffer textureByteBuffer = ByteBuffer.allocateDirect(texcoords.length * 4);
-        textureByteBuffer.order(ByteOrder.nativeOrder());
-        FloatBuffer textureBuffer = textureByteBuffer.asFloatBuffer();
-        textureBuffer.put(texcoords);
-        textureBuffer.position(0);
-
-
-        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexbuffer);
-        gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
-        int[] viewportDimensions = calculateViewPort(_sourceBitmap,_width,_height);
-        gl.glViewport(0, 0, viewportDimensions[0], viewportDimensions[1]);
-        gl.glDrawArrays(GL10.GL_TRIANGLE_FAN, 0, vertices.length/3);
-        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-        gl.glDisable(GL10.GL_TEXTURE_2D);
-        gl.glPopMatrix();
-        gl.glMatrixMode(GL10.GL_MODELVIEW);
-        gl.glPopMatrix();
-        gl.glBindTexture(GL10.GL_TEXTURE_2D,0);
-    }
+//    void drawSourceFace(GL10 gl){
+//        gl.glEnable(GL10.GL_TEXTURE_2D);
+//        gl.glBindTexture(GL10.GL_TEXTURE_2D,textures[0]);
+//        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+//        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+//
+//
+//        float[] vertices = _trackerActivity.getDestinationFaces()[_destinationIndex].getFaceContourVertices();
+//        ByteBuffer vertexByteBuffer=ByteBuffer.allocateDirect(vertices.length*4);
+//        vertexByteBuffer.order(ByteOrder.nativeOrder());
+//        FloatBuffer vertexbuffer=vertexByteBuffer.asFloatBuffer();
+//        vertexbuffer.put(vertices);
+//        vertexbuffer.position(0);
+//
+//        // Texture Coordinates
+//        float[] texcoords = _trackerActivity.getSourceFaces()[_sourceIndex].getFaceContourTextureCoordinates();
+//        ByteBuffer textureByteBuffer = ByteBuffer.allocateDirect(texcoords.length * 4);
+//        textureByteBuffer.order(ByteOrder.nativeOrder());
+//        FloatBuffer textureBuffer = textureByteBuffer.asFloatBuffer();
+//        textureBuffer.put(texcoords);
+//        textureBuffer.position(0);
+//
+//
+//        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexbuffer);
+//        gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
+//        int[] viewportDimensions = calculateViewPort(_sourceBitmap,_width,_height);
+//        gl.glViewport(0, 0, viewportDimensions[0], viewportDimensions[1]);
+//        gl.glDrawArrays(GL10.GL_TRIANGLE_FAN, 0, vertices.length/3);
+//        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+//        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+//        gl.glDisable(GL10.GL_TEXTURE_2D);
+//        gl.glPopMatrix();
+//        gl.glMatrixMode(GL10.GL_MODELVIEW);
+//        gl.glPopMatrix();
+//        gl.glBindTexture(GL10.GL_TEXTURE_2D,0);
+//    }
 
 
 

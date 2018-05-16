@@ -98,23 +98,23 @@ public class TrackerActivity extends AppCompatActivity
 //			destinationFaceIndex = destinationFaces.length - 1;
 			setBitmap(sourceFaces,sourceBitmap);
 			setBitmap(destinationFaces,destinationBitmap);
-			calculateRect(sourceFaces);
-			calculateRect(destinationFaces);
-			calculateMedian(sourceFaces);
-			calculateMedian(destinationFaces);
+//			calculateRect(sourceFaces);
+//			calculateRect(destinationFaces);
+//			calculateMedian(sourceFaces);
+//			calculateMedian(destinationFaces);
 
 			// sort arrays
-			Arrays.sort(sourceFaces, new Comparator<FaceData>() {
-				public int compare(FaceData idx1, FaceData idx2) {
-					return idx1.getFaceRect().left - idx2.getFaceRect().left;
-				}
-			});
-
-			Arrays.sort(destinationFaces, new Comparator<FaceData>() {
-				public int compare(FaceData idx1, FaceData idx2) {
-					return idx1.getFaceRect().left - idx2.getFaceRect().left;
-				}
-			});
+//			Arrays.sort(sourceFaces, new Comparator<FaceData>() {
+//				public int compare(FaceData idx1, FaceData idx2) {
+//					return idx1.getFaceRect().left - idx2.getFaceRect().left;
+//				}
+//			});
+//
+//			Arrays.sort(destinationFaces, new Comparator<FaceData>() {
+//				public int compare(FaceData idx1, FaceData idx2) {
+//					return idx1.getFaceRect().left - idx2.getFaceRect().left;
+//				}
+//			});
 
 			if(destinationFaceIndex > getDestinationFaces().length -1){
 				destinationFaceIndex = getDestinationFaces().length -1;
@@ -131,7 +131,7 @@ public class TrackerActivity extends AppCompatActivity
 
 			Scene3D.eyeIndicesBuffer = Utils.getShortBuffer(getSourceFaces()[sourceFaceIndex].getEyeTriangles());
 
-			Scene3D.rect = convertRect(getSourceFaces()[sourceFaceIndex].getFaceRect());
+//			Scene3D.rect = convertRect(getSourceFaces()[sourceFaceIndex].getFaceRect());
 			// Translation
 			double[] translation = new double[3];
 			float[] translationFace = getDestinationFaces()[destinationFaceIndex].getFaceTranslation();
@@ -204,17 +204,17 @@ public class TrackerActivity extends AppCompatActivity
 		}
 	}
 
-	private void calculateMedian(FaceData[] faces){
-		for(int i = 0; i < faces.length; i++){
-			faces[i].calculateMedian();
-		}
-	}
-
-	private void calculateRect(FaceData[] faces){
-		for(int i = 0; i < faces.length; i++){
-			faces[i].calculateRect();
-		}
-	}
+//	private void calculateMedian(FaceData[] faces){
+//		for(int i = 0; i < faces.length; i++){
+//			faces[i].calculateMedian();
+//		}
+//	}
+//
+//	private void calculateRect(FaceData[] faces){
+//		for(int i = 0; i < faces.length; i++){
+//			faces[i].calculateRect();
+//		}
+//	}
 
 
 	@Override
@@ -310,7 +310,7 @@ public class TrackerActivity extends AppCompatActivity
 	 * 
 	 * @param configFilename absolute path to tracker configuration file. 
 	 */
-	public native void TrackerInit(String configFilename);
+	public  native void TrackerInit(String configFilename);
 
     /** Interface to native method called to start tracking from image.
 	 * 

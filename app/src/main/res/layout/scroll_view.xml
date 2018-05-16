@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/source"
+        android:id="@+id/source"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.25"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp" />
+
+    <HorizontalScrollView
+        android:layout_gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_weight="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/dest1"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/karan_arjun"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/dest2"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:layout_width="200dp"
+                android:scaleType="fitXY"
+                android:layout_height="match_parent"
+                android:src="@drawable/aamir_salman"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/dest3"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:layout_width="200dp"
+                android:scaleType="fitXY"
+                android:layout_height="match_parent"
+                android:src="@drawable/krunal_bigb_hardik"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/dest4"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:layout_width="200dp"
+                android:scaleType="fitXY"
+                android:layout_height="match_parent"
+                android:src="@drawable/salman_sanjay"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/dest5"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:layout_width="200dp"
+                android:scaleType="fitXY"
+                android:layout_height="match_parent"
+                android:src="@drawable/vijender_ramdev"></ImageButton>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="0.25"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="0dp">
+
+        <TextView
+            android:text="Face Index"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/faceSpinner"
+            android:paddingBottom="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Spinner>
+
+        <Button
+            android:text="Apply"
+            android:id="@+id/applyButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>
